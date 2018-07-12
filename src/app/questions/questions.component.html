@@ -1,0 +1,22 @@
+<p> Angggggulards </p>
+
+<label>Question Details</label>
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onEditDescription($event)"> -->
+
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="questionDescription">
+
+<button 
+    class="btn btn-primary" 
+    [disabled]="!allowNewServer" 
+    (click)="onCreateQuestion()"> Add Question
+</button>
+
+<p *ngIf="questionCreated">{{dynamicValue}}</p>
+
+<app-question *ngFor="let question of questionsArray"></app-question>
