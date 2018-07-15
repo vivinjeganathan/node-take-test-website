@@ -1,2 +1,11 @@
-<app-header></app-header>
-<app-question></app-question>
+<app-header (selectedTab)="OnTabSelect($event)"></app-header>
+<!-- <app-component-child (messageEvent)="receiveMessage($event)"></app-component-child> -->
+<!-- <app-main-container></app-main-container> -->
+
+<app-dashboard *ngIf="selectedTab === 'dashboard'"></app-dashboard>
+<app-question *ngIf="selectedTab == 'questions'"></app-question>
+<app-tests *ngIf="selectedTab == 'tests'"></app-tests>
+<app-students *ngIf="selectedTab == 'students'"></app-students>
+<app-reports *ngIf="selectedTab == 'reports'"></app-reports>
+<app-manage-account *ngIf="selectedTab === 'manageAccounts'"></app-manage-account>
+<!-- <app-playground></app-playground> -->
