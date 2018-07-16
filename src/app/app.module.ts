@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './main-container/question/question.component';
-import { QuestionsComponent } from './main-container/questions/questions.component';
 import { HeaderComponent } from './header/header.component';
 import { BasicDetailsComponent } from './main-container/question/add-question/basic-details/basic-details.component';
 import { MainDetailsComponent } from './main-container/question/add-question/main-details/main-details.component';
@@ -21,14 +20,12 @@ import { ComponentChildComponent } from './playground/component-child/component-
 import { TestsComponent } from './main-container/tests/tests.component';
 import { StudentsComponent } from './main-container/students/students.component';
 import { ReportsComponent } from './main-container/reports/reports.component';
-import { ManageAccountsComponent } from './main-container/manage-accounts/manage-accounts.component';
 import { ManageAccountComponent } from './main-container/manage-account/manage-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
-    QuestionsComponent,
     HeaderComponent,
     BasicDetailsComponent,
     MainDetailsComponent,
@@ -45,7 +42,6 @@ import { ManageAccountComponent } from './main-container/manage-account/manage-a
     TestsComponent,
     StudentsComponent,
     ReportsComponent,
-    ManageAccountsComponent,
     ManageAccountComponent
   ],
   imports: [
