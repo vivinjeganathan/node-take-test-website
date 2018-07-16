@@ -1,6 +1,10 @@
+ <div class="alert alert-info alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Question added!</strong>
+</div>
 <div class="column">
     <app-basic-details></app-basic-details> <br> <hr>
-    <app-main-details></app-main-details> <br> <hr>
+    <app-main-details [question]="question"></app-main-details> <br> <hr>
     <app-additional-details></app-additional-details> <hr>
-    <app-action-details></app-action-details>
+    <app-action-details (questionAdded)="onAddQuestion($event)"></app-action-details>
 </div>

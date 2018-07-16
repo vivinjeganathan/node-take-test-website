@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { initNgModule } from "@angular/core/src/view/ng_module";
 import { Question } from '../question.model';
 
@@ -8,11 +8,7 @@ import { Question } from '../question.model';
 })
 export class SearchQuestionComponent implements OnInit {
 
-  questions: Question[] = [
-    new Question("first desc"),
-    new Question("sec desc"),
-    new Question("third desc")
-  ]
+  @Input() questions: Question[]
   
   constructor() { }
 
@@ -20,7 +16,7 @@ export class SearchQuestionComponent implements OnInit {
   }
 
   onDeleteQuestion(question: Question) {
-
+    console.log(question);
     this.questions.splice(this.questions.indexOf(question), 1);
   }
 

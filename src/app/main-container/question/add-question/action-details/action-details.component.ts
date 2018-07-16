@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Question } from '../../../../question/question.model';
 
 @Component({
   selector: 'app-action-details',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionDetailsComponent implements OnInit {
 
+  @Output() questionAdded = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onAddQuestion() {
+    this.questionAdded.emit()
+  }
 }
 
 // export class QuestionsComponent implements OnInit{

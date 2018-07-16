@@ -1,12 +1,25 @@
 <form>
-    <div class="form-row" class="md-12">
+    <!-- <div class="form-row" class="md-12">
         <app-option-details></app-option-details> 
-    </div> 
+    </div>  -->
     
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label>Question Description</label>
+        </div>
+        <div class="form-group col-md-10">
+            <textarea class="form-control" 
+                      rows="2"
+                      [(ngModel)]="question.description"
+                      name="first"></textarea>
+        </div>
+    </div>
+
+
     <br>
     <br>
 
-    <div class="form-row" class="lg-12">
+    <!-- <div class="form-row" class="lg-12">
         <div class="form-col lg-6">
             <app-option-details> </app-option-details> 
         </div> 
@@ -21,5 +34,5 @@
         <div class="form-col lg-6">
                 <app-option-details> </app-option-details>
         </div>
-    </div> 
+    </div>  -->
 </form>
