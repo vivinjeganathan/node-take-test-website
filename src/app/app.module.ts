@@ -21,6 +21,9 @@ import { TestsComponent } from './main-container/tests/tests.component';
 import { StudentsComponent } from './main-container/students/students.component';
 import { ReportsComponent } from './main-container/reports/reports.component';
 import { ManageAccountComponent } from './main-container/manage-account/manage-account.component';
+import { QuestionService } from './main-container/question/question.service';
+import { SearchQuestionService } from './main-container/question/search-question/search-question.service';
+import { AddQuestionService } from './main-container/question/add-question/add-question.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,7 @@ import { ManageAccountComponent } from './main-container/manage-account/manage-a
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [QuestionService, SearchQuestionService, AddQuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

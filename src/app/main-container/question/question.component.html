@@ -13,5 +13,5 @@
     <br> 
 
     <app-add-question (questionAdded)="onAddQuestion($event)" *ngIf="selectedTab=='addQuestion'"></app-add-question>
-    <app-search-question [questions]="questions" *ngIf="selectedTab=='searchQuestions'"></app-search-question>
+    <app-search-question *ngIf="selectedTab=='searchQuestions'"></app-search-question>
 </div>

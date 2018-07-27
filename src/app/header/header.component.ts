@@ -8,7 +8,6 @@ export class HeaderComponent {
     @Output() selectedTab = new EventEmitter<string>()
 
     onSelectTab(tabName: string) {
-        console.log("tabname: " + tabName);
         this.selectedTab.emit(tabName);
     }
 }

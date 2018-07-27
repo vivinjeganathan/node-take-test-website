@@ -11,8 +11,6 @@ export class AppComponent {
 
   OnTabSelect($event) {
 
-    console.log("tabname in app: " + $event);
     this.selectedTab = $event;
-    console.log("tabname in this.selectedTab: " + this.selectedTab);
   }
 }
