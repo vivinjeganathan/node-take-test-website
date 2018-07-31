@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-additional-details',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdditionalDetailsComponent implements OnInit {
 
-  constructor() { }
+  additionalDetailsSubForm: FormGroup
+  @Output() formInitialized = new EventEmitter<FormGroup>()
+  
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.additionalDetailsSubForm = this.formBuilder.group({
+      difficultyLevel: null,
+      timeRequired: null,
+      solutionDescription: null
+    })
+
+    this.formInitialized.emit(this.additionalDetailsSubForm);
   }
 
 }

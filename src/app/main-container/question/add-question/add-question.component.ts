@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { initNgModule } from "@angular/core/src/view/ng_module";
+import { FormBuilder, FormGroup, Validators } from '../../../../../node_modules/@angular/forms';
+
 import { Question } from '../question.model';
 import { AddQuestionService } from './add-question.service';
+
 
 @Component({
   selector: 'app-add-question',
@@ -10,12 +12,28 @@ import { AddQuestionService } from './add-question.service';
 })
 export class AddQuestionComponent {
 
+  public addQuestionForm: FormGroup;
   question: Question = new Question("my ques")
-  //@Output() questionAdded = new EventEmitter<Question>()
   
-  constructor(private addQuestionService: AddQuestionService) { }
+  constructor(private addQuestionService: AddQuestionService,
+              private formBuilder: FormBuilder) { }
 
+  ngOnInit() {
+    this.addQuestionForm = this.formBuilder.group({
+    })
+  }
+
+  formInitialized(name: string, form: FormGroup) {
+    console.log("inside" + name, form)
+    this.addQuestionForm.setControl(name, form);
+  }
+              
   onAddQuestion() {
     this.addQuestionService.addQuestion(this.question)
+    console.log(this.addQuestionForm.value)
   } 
+
+  addQuestion(addQuestionForm: FormGroup) {
+
+  }
 }

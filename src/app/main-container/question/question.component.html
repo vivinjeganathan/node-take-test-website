@@ -3,15 +3,14 @@
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link" href="#" (click)="onSelectTab('searchQuestions')">Search Questions</a>
+            <a class="nav-link" routerLink="searchQuestions" routerLinkActive="active">Search Questions</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" (click)="onSelectTab('addQuestion')">Add a question</a>
+            <a class="nav-link" routerLink="addQuestion" routerLinkActive="active">Add a question</a>
         </li>
     </ul>
 
     <br> 
-
-    <app-add-question (questionAdded)="onAddQuestion($event)" *ngIf="selectedTab=='addQuestion'"></app-add-question>
-    <app-search-question *ngIf="selectedTab=='searchQuestions'"></app-search-question>
+    
+    <router-outlet></router-outlet>
 </div>

@@ -1,14 +1,27 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Question } from '../../../../question/question.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-action-details',
   templateUrl: './action-details.component.html',
   styleUrls: ['./action-details.component.css']
 })
-export class ActionDetailsComponent {
+export class ActionDetailsComponent implements OnInit{
 
   @Output() questionAdded = new EventEmitter();
+
+  actionDetailsSubForm: FormGroup;
+  @Output() formInitialized = new EventEmitter<FormGroup>();
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.actionDetailsSubForm = this.formBuilder.group({
+
+    })
+
+    this.formInitialized.emit(this.actionDetailsSubForm)
+  }
 
   onAddQuestion() {
     this.questionAdded.emit()

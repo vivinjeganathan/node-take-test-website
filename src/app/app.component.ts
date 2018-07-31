@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  selectedTab = 'questions';
+  // title = 'app';
+  // selectedTab = 'questions';
 
-  OnTabSelect($event) {
+  // OnTabSelect($event) {
 
-    this.selectedTab = $event;
-  }
+  //   this.selectedTab = $event;
+  // }
 }

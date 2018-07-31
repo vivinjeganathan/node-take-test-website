@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../question.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-main-details',
@@ -11,9 +12,17 @@ export class MainDetailsComponent implements OnInit {
   @Input() question: Question;
   description: String;
   
-  constructor() { }
+  @Output() formInitialized = new EventEmitter<FormGroup>()
+  mainDetailsSubForm: FormGroup
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.mainDetailsSubForm = this.formBuilder.group({
+      questionDescription: null
+    })
+
+    this.formInitialized.emit(this.mainDetailsSubForm);
   }
 
 }

@@ -1,4 +1,4 @@
-<form>
+<div class="form-group" [formGroup]='mainDetailsSubForm'>
     <!-- <div class="form-row" class="md-12">
         <app-option-details></app-option-details> 
     </div>  -->
@@ -9,9 +9,7 @@
         </div>
         <div class="form-group col-md-10">
             <textarea class="form-control" 
-                      rows="2"
-                      [(ngModel)]="question.description"
-                      name="first"></textarea>
+                      rows="2" formControlName="questionDescription"></textarea>
         </div>
     </div>
 
@@ -35,4 +33,4 @@
                 <app-option-details> </app-option-details>
         </div>
     </div>  -->
-</form>
+</div>

@@ -10,15 +10,9 @@ import { QuestionService } from './question.service';
 })
 export class QuestionComponent implements OnInit{
 
-  selectedTab = 'searchQuestions'
-
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
 
-  }
-
-  onSelectTab(tabName: string) {
-    this.selectedTab = tabName;
   }
 }

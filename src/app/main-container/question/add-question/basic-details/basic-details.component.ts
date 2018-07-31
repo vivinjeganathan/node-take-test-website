@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-details',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicDetailsComponent implements OnInit {
 
-  constructor() { }
+  basicDetailsSubForm: FormGroup
+  @Output() formInitialized = new EventEmitter<FormGroup>()
+  
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-  }
+    this.basicDetailsSubForm = this.formBuilder.group({
+      subject: ['', [Validators.required]],
+      unit: null,
+      chapter: null,
+      questionType: null
+    })
 
+    this.formInitialized.emit(this.basicDetailsSubForm);
+  }
 }
