@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './main-container/question/question.component';
@@ -25,6 +26,7 @@ import { QuestionService } from './main-container/question/question.service';
 import { SearchQuestionService } from './main-container/question/search-question/search-question.service';
 import { AddQuestionService } from './main-container/question/add-question/add-question.service';
 import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],

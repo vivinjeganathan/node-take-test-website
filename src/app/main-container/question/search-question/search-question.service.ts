@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { QuestionService } from "../question.service";
-import { Question } from "../../../question/question.model";
+import { Question } from "../question.model";
 
 @Injectable()
 export class SearchQuestionService {
