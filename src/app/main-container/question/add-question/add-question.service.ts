@@ -12,8 +12,9 @@ export class AddQuestionService {
                 private http: HttpClient) {}
 
     addQuestion(question: Question) {
+        // http://127.0.0.1:3000/question
         this.questionService.addQuestion(question)
-        this.http.post('http://127.0.0.1:3000/question', question).subscribe(
+        this.http.post('https://take-test-api.herokuapp.com/question', question).subscribe(
             (response) => console.log(response),
             (error) => console.log(error)
         )
