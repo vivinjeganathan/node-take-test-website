@@ -19,7 +19,7 @@ export class MainDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.mainDetailsSubForm = this.formBuilder.group({
-      questionDescription: null
+      description: null
     })
 
     this.formInitialized.emit(this.mainDetailsSubForm);

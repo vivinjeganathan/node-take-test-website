@@ -13,7 +13,6 @@ import { AddQuestionService } from './add-question.service';
 export class AddQuestionComponent {
 
   public addQuestionForm: FormGroup;
-  question: Question = new Question("my ques")
   
   constructor(private addQuestionService: AddQuestionService,
               private formBuilder: FormBuilder) { }
@@ -24,13 +23,11 @@ export class AddQuestionComponent {
   }
 
   formInitialized(name: string, form: FormGroup) {
-    console.log("inside" + name, form)
     this.addQuestionForm.setControl(name, form);
   }
               
   onAddQuestion() {
-    this.addQuestionService.addQuestion(this.question)
-    console.log(this.addQuestionForm.value)
+    this.addQuestionService.addQuestion(this.addQuestionForm)
   } 
 
   addQuestion(addQuestionForm: FormGroup) {

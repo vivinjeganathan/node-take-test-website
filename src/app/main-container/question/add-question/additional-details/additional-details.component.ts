@@ -15,8 +15,8 @@ export class AdditionalDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.additionalDetailsSubForm = this.formBuilder.group({
-      difficultyLevel: null,
-      timeRequired: null,
+      complexity: null,
+      maxTimeLimit: null,
       solutionDescription: null
     })
 

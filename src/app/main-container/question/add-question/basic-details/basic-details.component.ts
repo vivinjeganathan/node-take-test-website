@@ -18,7 +18,7 @@ export class BasicDetailsComponent implements OnInit {
       subject: ['', [Validators.required]],
       unit: null,
       chapter: null,
-      questionType: null
+      type: null
     })
 
     this.formInitialized.emit(this.basicDetailsSubForm);

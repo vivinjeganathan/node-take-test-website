@@ -6,8 +6,8 @@ import { Question } from "./question.model";
 export class QuestionService {
 
     private questions: Question[] = [
-        new Question("Sample question 1"), 
-        new Question("Sample Question 2")
+        // new Question("Sample question 1"), 
+        // new Question("Sample Question 2")
     ]
 
     questionsChanged = new EventEmitter<Question[]>()
