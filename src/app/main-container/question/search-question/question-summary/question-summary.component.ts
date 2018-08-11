@@ -9,6 +9,7 @@ import { Question } from '../../question.model';
 export class QuestionSummaryComponent implements OnInit {
 
   @Input() question: Question;
+  @Input() number: Number;
   @Output() questionDeleted = new EventEmitter<{question: Question}>();
 
   constructor() { }

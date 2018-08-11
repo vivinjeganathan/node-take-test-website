@@ -1,5 +1,5 @@
-<th scope="row">1</th>
-<td>{{question.description}}</td> 
+<th scope="row">{{number+1}}</th>
+<td>{{question.subject}} {{question.unit}} {{question.chapter}} {{question.type}} {{question.description}}</td> 
 <td><button 
       class="btn btn-primary"
       (click)="OnDeleteQuestion()">Delete</button> 

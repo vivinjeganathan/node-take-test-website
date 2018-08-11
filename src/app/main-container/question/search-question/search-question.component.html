@@ -7,8 +7,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let question of questions">
+    <tr *ngFor="let question of questions; let i = index">
         <app-question-summary
+          [number]="i"
           [question]="question"
           (questionDeleted)="onDeleteQuestion($event)"> 
         </app-question-summary>

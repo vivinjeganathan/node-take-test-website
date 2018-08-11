@@ -17,8 +17,11 @@ export class SearchQuestionComponent {
 
   ngOnInit() {
     this.questions = this.searchQuestionService.getQuestions()
-    this.questionService.questionsChanged.subscribe((question: Question) => {
-      this.questions = this.questionService.getQuestions()
+    this.searchQuestionService.questionsChanged.subscribe((question: Question) => {
+      
+      this.questions = this.searchQuestionService.questions
+      console.log('In sear - ' + this.questions)
+      
     });
   }
 

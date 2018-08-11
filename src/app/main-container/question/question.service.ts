@@ -5,23 +5,23 @@ import { Question } from "./question.model";
 
 export class QuestionService {
 
-    private questions: Question[] = [
-        // new Question("Sample question 1"), 
-        // new Question("Sample Question 2")
-    ]
+    // private questions: Question[] = [
+    //     // new Question("Sample question 1"), 
+    //     // new Question("Sample Question 2")
+    // ]
 
-    questionsChanged = new EventEmitter<Question[]>()
+    
 
-    getQuestions() {
-        return this.questions.slice()
-    }
+    // getQuestions() {
+    //     return this.questions.slice()
+    // }
 
-    addQuestion(question: Question) {
-        this.questions.push(question)
-    }
+    // addQuestion(question: Question) {
+    //     this.questions.push(question)
+    // }
 
-    deleteQuestion(question: Question) {
-        this.questions.splice(this.questions.indexOf(question), 1);
-        this.questionsChanged.emit(this.questions.slice())
-    }
+    // deleteQuestion(question: Question) {
+    //     this.questions.splice(this.questions.indexOf(question), 1);
+    //     this.questionsChanged.emit(this.questions.slice())
+    // }
 }
