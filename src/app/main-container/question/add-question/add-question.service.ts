@@ -12,12 +12,12 @@ export class AddQuestionService {
                 private http: HttpClient) {}
 
     addQuestion(questionFormObject: FormGroup) {
-        //https://take-test-api.herokuapp.com/question
-        
+        //
+        // http://127.0.0.1:3000/question
         let questionModel = new Question(questionFormObject)
         console.log("in question service" + JSON.stringify(questionModel) )
         // this.questionService.addQuestion(questionModel)
-        this.http.post('http://127.0.0.1:3000/question', questionModel).subscribe(
+        this.http.post('https://take-test-api.herokuapp.com/question', questionModel).subscribe(
             (response) => console.log(response),
             (error) => console.log(error)
         )

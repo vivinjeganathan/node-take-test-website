@@ -15,8 +15,8 @@ export class SearchQuestionService {
     questionsChanged = new EventEmitter<Question[]>()
 
     getQuestions() {
-        
-        this.http.get('http://127.0.0.1:3000/question').subscribe(
+        // https://take-test-api.herokuapp.com/question
+        this.http.get('https://take-test-api.herokuapp.com/question').subscribe(
             (response) => {
                 this.questions = response['question'] as [Question]
                 this.questionsChanged.emit(this.questions)
