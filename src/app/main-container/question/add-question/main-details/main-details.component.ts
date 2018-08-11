@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class MainDetailsComponent implements OnInit {
 
-  @Input() question: Question;
   description: String;
   
   @Output() formInitialized = new EventEmitter<FormGroup>()

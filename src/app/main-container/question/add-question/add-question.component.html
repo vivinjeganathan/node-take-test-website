@@ -5,7 +5,7 @@
 <div class="column">
     <form [formGroup]="addQuestionForm" novalidate (ngsubmit)="addQuestion(addQuestionForm)">
         <app-basic-details (formInitialized)="formInitialized('basicDetails', $event)"></app-basic-details> <br> <hr>
-        <app-main-details (formInitialized)="formInitialized('mainDetails', $event)" [question]="question"></app-main-details> <br> <hr>
+        <app-main-details (formInitialized)="formInitialized('mainDetails', $event)"></app-main-details> <br> <hr>
         <app-additional-details (formInitialized)="formInitialized('additionalDetails', $event)"></app-additional-details> <hr>
         <app-action-details (formInitialized)="formInitialized('actionDetails', $event)" (questionAdded)="onAddQuestion()"></app-action-details>
     </form>
