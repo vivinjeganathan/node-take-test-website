@@ -10,7 +10,7 @@ export class QuestionSummaryComponent implements OnInit {
 
   @Input() question: Question;
   @Input() number: number;
-  @Output() questionDeleted = new EventEmitter<{question: Question}>();
+  @Output() questionDeleted = new EventEmitter<Question>();
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class QuestionSummaryComponent implements OnInit {
 
   OnDeleteQuestion() {
 
-    this.questionDeleted.emit({question: this.question});
+    this.questionDeleted.emit(this.question);
   }
 
 }

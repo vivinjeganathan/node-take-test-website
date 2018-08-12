@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  envName: 'prod',
+  serverURL: 'https://take-test-api.herokuapp.com'
 };

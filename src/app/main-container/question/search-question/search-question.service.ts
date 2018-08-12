@@ -3,11 +3,13 @@ import { HttpClient } from "@angular/common/http";
 
 import { QuestionService } from "../question.service";
 import { Question } from "../question.model";
+import {environment} from '../../../../environments/environment';
 
 @Injectable()
 export class SearchQuestionService {
 
     questions: Question[] = []
+    questionURL: string = environment.serverUrl + '/question'
 
     constructor(private questionService: QuestionService,
                 private http: HttpClient) { }
@@ -15,11 +17,12 @@ export class SearchQuestionService {
     questionsChanged = new EventEmitter<Question[]>()
 
     getQuestions() {
-        // https://take-test-api.herokuapp.com/question
-        this.http.get('https://take-test-api.herokuapp.com/question').subscribe(
+
+        this.http.get(this.questionURL).subscribe(
             (response) => {
                 this.questions = response['question'] as [Question]
                 this.questionsChanged.emit(this.questions)
+                console.log(this.questions)
             },
             (error) => console.log(error)
         )
@@ -28,7 +31,12 @@ export class SearchQuestionService {
     }
 
     deleteQuestion(question: Question) {
-        this.questions.splice(this.questions.indexOf(question), 1);
-        this.questionsChanged.emit(this.questions)
+
+        var deleteUrl = this.questionURL + "/" + question._id
+        this.http.delete(deleteUrl).subscribe((response) => {
+            console.log(response)
+            this.questions.splice(this.questions.indexOf(question), 1);
+            this.questionsChanged.emit(this.questions)
+        }, (error) => console.log(error))
     }
 }
