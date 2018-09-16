@@ -26,6 +26,8 @@ import { QuestionService } from './main-container/question/question.service';
 import { SearchQuestionService } from './main-container/question/search-question/search-question.service';
 import { AddQuestionService } from './main-container/question/add-question/add-question.service';
 import { AppRoutingModule } from './app-routing.module';
+import { CustomSelectorComponent } from './main-container/question/add-question/basic-details/custom-selector/custom-selector.component';
+import { BasicDetailsService } from './main-container/question/basic-details.service';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { AppRoutingModule } from './app-routing.module';
     TestsComponent,
     StudentsComponent,
     ReportsComponent,
-    ManageAccountComponent
+    ManageAccountComponent,
+    CustomSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [QuestionService, SearchQuestionService, AddQuestionService],
+  providers: [QuestionService, SearchQuestionService, AddQuestionService, BasicDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

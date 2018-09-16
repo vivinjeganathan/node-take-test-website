@@ -1,0 +1,7 @@
+<div [formGroup]="basicDetailsSubForm">
+    <label for="selectQuestionType">Select {{ customSelector?.title }}</label>
+    <select class="form-control" [formControl]="selectFormControl" id="selectQuestionType" [value]="customSelector?.selectedOption">
+        <option *ngFor="let option of customSelector?.options" [value]="option">{{option}}
+        </option>
+    </select>
+</div>

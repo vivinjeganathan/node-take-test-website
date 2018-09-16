@@ -2,39 +2,32 @@
     <h5>Question Details</h5>
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="selectQuestionType">Select Question Type</label>
-            <select class="form-control" formControlName="type" id="selectQuestionType">
-                <option>Multiple Choice</option>
-                <option>Match</option>
-                <option>True/False</option>
-            </select>
+            <app-custom-selector [formGroup]="basicDetailsSubForm" 
+                                 [customSelector]="questionTypesSelector" 
+                                 (questionTypeChanged)="onSelectQuestionType($event)">
+            </app-custom-selector>
         </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="selectSubject">Select Subject</label>
-        <select class="form-control" formControlName="subject" id="selectSubject">
-            <option>Subject-1</option>
-            <option>Subject-2</option>
-            <option>Subject-3</option>
-        </select>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="selectUnit">Select Unit</label>
-        <select class="form-control" formControlName="unit" id="selectUnit">
-            <option></option>
-            <option>Unit-1</option>
-            <option>Unit-2</option>
-            <option>Unit-3</option>
-        </select>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="selectChapter">Select Chapter</label>
-        <select class="form-control" formControlName="chapter" id="selectChapter">
-            <option>Chapter-1</option>
-            <option>Chapter-2</option>
-            <option>Chapter-3</option>
-        </select>
-       </div>
+        <div class="form-group col-md-4">
+            <app-custom-selector [formGroup]="basicDetailsSubForm"
+                                 [customSelector]="subjectsSelector" 
+                                 (subjectChanged)="onSelectSubject($event)">
+            </app-custom-selector>
+        </div>
+
+        <div class="form-group col-md-4">
+            <app-custom-selector [formGroup]="basicDetailsSubForm" 
+                                 [customSelector]="unitsSelector" 
+                                 (unitChanged)="onSelectunit($event)">
+            </app-custom-selector>
+        </div>
+
+        <div class="form-group col-md-4">
+            <app-custom-selector [formGroup]="basicDetailsSubForm"
+                                 [customSelector]="chaptersSelector" 
+                                 (chapterChanged)="onSelectChapter($event)">
+        </app-custom-selector>
+        </div>
     </div>      
 </div>
