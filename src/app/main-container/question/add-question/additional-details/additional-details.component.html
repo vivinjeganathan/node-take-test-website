@@ -1,17 +1,17 @@
-<div class="form-group" [formGroup]='additionalDetailsSubForm'>
+<div class="form-group" [formGroup]='formGroup'>
   <h5>More Details</h5>
   <div class="form-row">
     <div class="form-group col-md-6">
+        <label>Select Complexity</label>
         <select class="form-control" formControlName="complexity">
-            <option>Difficulty Level</option>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
         </select>
     </div>
     <div class="form-group col-md-6">
+        <label>Select max time limit(seconds)</label>
         <select class="form-control" formControlName="maxTimeLimit">
-            <option>Time Required</option>
             <option>20</option>
             <option>40</option>
             <option>60</option>

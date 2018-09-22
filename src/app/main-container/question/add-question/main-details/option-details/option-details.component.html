@@ -1,15 +1,16 @@
-<form>
+<div class="form-group" [formGroup]='formGroup'>
     <div class="form-row">
         <div class="form-group col-md-2">
-            <label>Option</label>
+            <label> {{ optionDetails.title }}</label>
             <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox"> Input as Image
             </div> -->
         </div>
         <div class="form-group col-md-10">
             <textarea class="form-control" 
-                      rows="2"
-                      #userInput></textarea>
+                      rows="2">
+                      
+            </textarea><!-- [formControlName]="optionDetails.title"> -->
         </div>
     </div>
-</form>
+</div>

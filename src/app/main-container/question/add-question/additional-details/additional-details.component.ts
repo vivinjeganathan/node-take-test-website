@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-additional-details',
@@ -8,19 +8,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AdditionalDetailsComponent implements OnInit {
 
-  additionalDetailsSubForm: FormGroup
-  @Output() formInitialized = new EventEmitter<FormGroup>()
+  @Input() formGroup: FormGroup
   
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.additionalDetailsSubForm = this.formBuilder.group({
-      complexity: null,
-      maxTimeLimit: null,
-      solutionDescription: null
-    })
 
-    this.formInitialized.emit(this.additionalDetailsSubForm);
+    this.formGroup.addControl('complexity', new FormControl(''))
+    this.formGroup.addControl('maxTimeLimit', new FormControl(''))
+    this.formGroup.addControl('solutionDescription', new FormControl(''))
   }
-
 }

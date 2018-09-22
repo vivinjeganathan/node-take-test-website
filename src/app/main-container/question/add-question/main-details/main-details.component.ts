@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../question.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { OptionDetails } from './option-details/option-details.model';
+import { MainDetailsService } from './main-details.service';
 
 @Component({
   selector: 'app-main-details',
@@ -9,19 +11,30 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class MainDetailsComponent implements OnInit {
 
-  description: String;
-  
-  @Output() formInitialized = new EventEmitter<FormGroup>()
-  mainDetailsSubForm: FormGroup
+  description: String
+  optionDetailsArray: OptionDetails[] = []
 
-  constructor(private formBuilder: FormBuilder) { }
+  // @Output() formInitialized = new EventEmitter<FormGroup>()
+  @Input() formGroup: FormGroup
+
+  constructor(private formBuilder: FormBuilder, private mainDetailsService: MainDetailsService) { }
 
   ngOnInit() {
-    this.mainDetailsSubForm = this.formBuilder.group({
-      description: null
-    })
+    
+    this.optionDetailsArray = this.mainDetailsService.optionDetailsArray
+    // this.mainDetailsService.getFormGroup()
+    
+    // this.mainDetailsSubForm = this.formBuilder.group({
+    //   description: null,
+    // })
 
-    this.formInitialized.emit(this.mainDetailsSubForm);
+    this.formGroup.addControl('description', new FormControl('description'))
+
+    // this.formInitialized.emit(this.mainDetailsSubForm);
   }
+
+  // subFormInitialized(name: string, form: FormGroup) {
+  //   this.mainDetailsSubForm.setControl(name, form);
+  // }
 
 }

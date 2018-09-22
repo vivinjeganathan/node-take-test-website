@@ -1,8 +1,8 @@
-<div class="form-group" [formGroup]='basicDetailsSubForm'>
+<div class="form-group" [formGroup]='formGroup'>
     <h5>Question Details</h5>
     <div class="form-row">
         <div class="form-group col-md-4">
-            <app-custom-selector [formGroup]="basicDetailsSubForm" 
+            <app-custom-selector [formGroup]="formGroup" 
                                  [customSelector]="questionTypesSelector" 
                                  (questionTypeChanged)="onSelectQuestionType($event)">
             </app-custom-selector>
@@ -10,24 +10,24 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
-            <app-custom-selector [formGroup]="basicDetailsSubForm"
+            <app-custom-selector [formGroup]="formGroup"
                                  [customSelector]="subjectsSelector" 
                                  (subjectChanged)="onSelectSubject($event)">
             </app-custom-selector>
         </div>
 
         <div class="form-group col-md-4">
-            <app-custom-selector [formGroup]="basicDetailsSubForm" 
+            <app-custom-selector [formGroup]="formGroup" 
                                  [customSelector]="unitsSelector" 
                                  (unitChanged)="onSelectunit($event)">
             </app-custom-selector>
         </div>
 
         <div class="form-group col-md-4">
-            <app-custom-selector [formGroup]="basicDetailsSubForm"
+            <app-custom-selector [formGroup]="formGroup"
                                  [customSelector]="chaptersSelector" 
                                  (chapterChanged)="onSelectChapter($event)">
-        </app-custom-selector>
+            </app-custom-selector>
         </div>
     </div>      
 </div>

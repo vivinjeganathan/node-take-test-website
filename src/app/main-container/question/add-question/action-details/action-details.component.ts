@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,17 +10,17 @@ export class ActionDetailsComponent implements OnInit{
 
   @Output() questionAdded = new EventEmitter();
 
-  actionDetailsSubForm: FormGroup;
-  @Output() formInitialized = new EventEmitter<FormGroup>();
+  @Input() formGroup: FormGroup;
+  // @Output() formInitialized = new EventEmitter<FormGroup>();
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.actionDetailsSubForm = this.formBuilder.group({
+    // this.actionDetailsSubForm = this.formBuilder.group({
 
-    })
+    // })
 
-    this.formInitialized.emit(this.actionDetailsSubForm)
+    // this.formInitialized.emit(this.actionDetailsSubForm)
   }
 
   onAddQuestion() {

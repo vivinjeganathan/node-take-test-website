@@ -12,22 +12,22 @@ import { AddQuestionService } from './add-question.service';
 })
 export class AddQuestionComponent {
 
-  public addQuestionForm: FormGroup;
+  public addQuestionFormGroup: FormGroup;
   
   constructor(private addQuestionService: AddQuestionService,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.addQuestionForm = this.formBuilder.group({
+    this.addQuestionFormGroup = this.formBuilder.group({
     })
   }
 
-  formInitialized(name: string, form: FormGroup) {
-    this.addQuestionForm.setControl(name, form);
-  }
+  // formInitialized(name: string, form: FormGroup) {
+  //   this.addQuestionForm.setControl(name, form);
+  // }
               
   onAddQuestion() {
-    this.addQuestionService.addQuestion(this.addQuestionForm)
+    this.addQuestionService.addQuestion(this.addQuestionFormGroup)
   } 
 
   addQuestion(addQuestionForm: FormGroup) {

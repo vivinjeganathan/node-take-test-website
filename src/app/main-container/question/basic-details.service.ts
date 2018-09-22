@@ -14,6 +14,11 @@ export class BasicDetailsService {
 
     allSubjects: [Subject]
 
+    questionTypesSelector: CustomSelector
+    subjectsSelector: CustomSelector
+    unitsSelector: CustomSelector
+    chaptersSelector: CustomSelector
+
     questionTypesURL: string = environment.serverUrl + '/questionType'
     subjectURL: string = environment.serverUrl + '/subject'
 
@@ -22,14 +27,9 @@ export class BasicDetailsService {
     getQuestionTypes(): Observable<CustomSelector> {
 
         return this.http.get(this.questionTypesURL).pipe(map(response => {
-
-                var questionTypesSelector = new CustomSelector
-                questionTypesSelector.title = "Question Type"
-                questionTypesSelector.options = (response as [QuestionType]).map(questionType => questionType.name)
-
-                console.log(questionTypesSelector)
-
-                return questionTypesSelector
+                
+            this.questionTypesSelector.options = (response as [QuestionType]).map(questionType => questionType.name)
+            return this.questionTypesSelector
         }))
     }
 
@@ -39,36 +39,22 @@ export class BasicDetailsService {
 
             this.allSubjects = response as [Subject]
 
-            var subjectsSelector = new CustomSelector
-            subjectsSelector.title = "Subject"
-            subjectsSelector.options = (this.allSubjects).map(subject => subject.name)
-
-            console.log(subjectsSelector)
-
-            return subjectsSelector
+            this.subjectsSelector.options = (this.allSubjects).map(subject => subject.name)
+            return this.subjectsSelector
         }))
     }
 
     getUnits(subjectName: string): CustomSelector {
 
-        var unitsSelector = new CustomSelector
-        unitsSelector.title = "Unit"
-        
         var subject = (this.allSubjects).filter((subject) => 
              (subject.name == subjectName)
         )[0]
 
-        unitsSelector.options = subject.units.map(unit => unit.name)
-
-        console.log(unitsSelector)
-
-        return unitsSelector
+        this.unitsSelector.options = subject.units.map(unit => unit.name)
+        return this.unitsSelector
     }
 
     getChapters(subjectName: string, unitName: string): CustomSelector {
-
-        var chaptersSelector = new CustomSelector
-        chaptersSelector.title = "Chapter"
         
         var subject = (this.allSubjects).filter((subject) => 
              (subject.name == subjectName)
@@ -78,10 +64,26 @@ export class BasicDetailsService {
             (unit.name == unitName)
         )[0]
 
-        chaptersSelector.options = unit.chapters.map(chapter => chapter.name)
+        this.chaptersSelector.options = unit.chapters.map(chapter => chapter.name)
+        return this.chaptersSelector
+    }
 
-        console.log(chaptersSelector)
+    createSelectors() {
 
-        return chaptersSelector
+        this.questionTypesSelector = new CustomSelector
+        this.questionTypesSelector.name = "type"
+        this.questionTypesSelector.title = "Question Type"
+
+        this.subjectsSelector = new CustomSelector
+        this.subjectsSelector.name = "subject"
+        this.subjectsSelector.title = "Subject"
+
+        this.unitsSelector = new CustomSelector
+        this.unitsSelector.name = "unit"
+        this.unitsSelector.title = "Unit"
+
+        this.chaptersSelector = new CustomSelector
+        this.chaptersSelector.name = "chapter"
+        this.chaptersSelector.title = "Chapter"
     }
 }

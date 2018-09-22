@@ -15,6 +15,10 @@ export class Question {
     public solutionDescription: string;
 
     constructor(formObject: FormGroup) {
+
+        console.log('asdfg----------')
+        console.log(formObject)
+        
         let basicDetails = this.getBasicDetails(formObject)
 
         // this.exam = basicDetails.get('exam').value
@@ -25,8 +29,9 @@ export class Question {
 
         let mainDetails = this.getMainDetails(formObject)
 
+        
         this.description = mainDetails.get('description').value
-        this.options = ['option1', 'option2']
+        this.options = [mainDetails.get('optionDetailsSubForm').get('Option 1').value, mainDetails.get('optionDetailsSubForm').get('Option 2').value, mainDetails.get('optionDetailsSubForm').get('Option 3').value, mainDetails.get('optionDetailsSubForm').get('Option 4').value]
         this.correctOption = 'option1'
 
         let additionalDetails = this.getAdditionalDetails(formObject)
