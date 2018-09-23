@@ -3,7 +3,7 @@
     <strong>Question added!</strong>
 </div>
 <div class="column">
-    <form [formGroup]="addQuestionFormGroup" novalidate (ngsubmit)="addQuestion(addQuestionForm)">
+    <form [formGroup]="addQuestionFormGroup">
         <app-basic-details [formGroup]="addQuestionFormGroup"></app-basic-details>  <hr>
         <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <hr>
         <app-additional-details [formGroup]="addQuestionFormGroup"></app-additional-details>

@@ -27,8 +27,4 @@ export class AddQuestionComponent {
   onAddQuestion() {
     this.addQuestionService.addQuestion(this.addQuestionFormGroup)
   } 
-
-  addQuestion(addQuestionForm: FormGroup) {
-
-  }
 }
