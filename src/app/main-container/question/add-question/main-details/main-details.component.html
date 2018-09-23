@@ -15,7 +15,7 @@
     <br>
     <br>
 
-    <div formArrayName="options" *ngFor="let option of formGroup.get('options').controls; let i = index">
+    <div formArrayName="options" *ngFor="let option of optionsFormArray.controls; let i = index">
             <div [formGroupName]="i">
                 <app-option-details  
                     [formGroup]="optionDetailsFormGroups[i]"

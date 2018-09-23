@@ -33,4 +33,8 @@ export class MainDetailsComponent implements OnInit {
       formArray.push(formGroup)
     }
   }
+
+  get optionsFormArray() {
+     return <FormArray>this.formGroup.get('options'); 
+  }
 }
