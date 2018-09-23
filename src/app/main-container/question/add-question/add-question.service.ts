@@ -14,12 +14,13 @@ export class AddQuestionService {
     constructor(private questionService: QuestionService,
                 private http: HttpClient) {}
 
-    addQuestion(questionFormObject: FormGroup) {
+    addQuestion(formGroup: FormGroup) {
 
-        let questionModel = new Question(questionFormObject)
-        // this.questionService.addQuestion(questionModel)
-        this.http.post(this.addQuestionURL, questionModel).subscribe(
-            (response) => console.log(response),
+        this.http.post(this.addQuestionURL, formGroup.value).subscribe(
+            
+            (response) => {
+                console.log(response)
+            } ,
             (error) => console.log(error)
         )
     }

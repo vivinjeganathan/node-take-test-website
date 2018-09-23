@@ -10,8 +10,6 @@ import { CustomSelector } from './custom-selector.model';
 export class CustomSelectorComponent implements OnInit {
 
   @Input() formGroup: FormGroup
-  selectFormControl: AbstractControl
-
   @Input() customSelector: CustomSelector;
 
   @Output() questionTypeChanged = new EventEmitter<CustomSelector>();
@@ -23,9 +21,11 @@ export class CustomSelectorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.selectFormControl = this.formGroup.get(this.customSelector.name)
+    let selectFormControl = new FormControl('')
+    this.formGroup.addControl(this.customSelector.name, selectFormControl)
+    selectFormControl.setValue(this.customSelector.selectedOption)
 
-    this.selectFormControl.valueChanges.subscribe((value) => {
+    selectFormControl.valueChanges.subscribe((value) => {
 
       this.customSelector.selectedOption = value
 

@@ -13,22 +13,9 @@ export class MainDetailsService {
         for(let i=0;i<4;i++) {
 
             var optionDetails = new OptionDetails
+            optionDetails.name = 'Option' + (i+1)
             optionDetails.title = 'Option ' + (i+1)
             this.optionDetailsArray.push(optionDetails)
         } 
-    }
-
-    getFormGroup() {
-
-        let group: any = {};
-
-        this.optionDetailsArray.forEach(optionDetails => {
-            
-            // const control: FormControl = new FormControl('', null);
-            // group.addControl(optionDetails.title, control)
-            group[optionDetails.title] = new FormControl('', null);
-        });
-
-        this.group1 = new FormGroup(group);
     }
 }

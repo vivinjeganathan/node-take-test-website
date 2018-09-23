@@ -15,13 +15,13 @@
     <br>
     <br>
 
-    <!-- <app-option-details *ngFor="let option of optionDetailsArray" 
-                        [optionDetails]="option"
-                        (formInitialized)="subFormInitialized('optionDetails', $event)">
-    </app-option-details> -->
+    <div formArrayName="options" *ngFor="let option of formGroup.get('options').controls; let i = index">
+            <div [formGroupName]="i">
+                <app-option-details  
+                    [formGroup]="optionDetailsFormGroups[i]"
+                    [optionDetails]="optionDetailsArray[i]">
+                </app-option-details>
+            </div>
+    </div>
 
-    <app-option-details *ngFor="let option of optionDetailsArray" 
-                        [formGroup]="formGroup"
-                        [optionDetails]="option">
-    </app-option-details>
 </div>

@@ -27,11 +27,6 @@ export class BasicDetailsComponent implements OnInit {
     this.unitsSelector = this.basicDetailsService.unitsSelector
     this.chaptersSelector = this.basicDetailsService.chaptersSelector
 
-    this.formGroup.addControl('subject',new FormControl(''))
-    this.formGroup.addControl('unit',new FormControl(''))
-    this.formGroup.addControl('chapter',new FormControl(''))
-    this.formGroup.addControl('type',new FormControl(''))
-
     this.basicDetailsService.getQuestionTypes().subscribe(questionTypesSelector => {
 
       this.questionTypesSelector.selectedOption = this.questionTypesSelector.options[0]

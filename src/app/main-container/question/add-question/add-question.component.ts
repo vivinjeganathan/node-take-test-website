@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '../../../../../node_modules/@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '../../../../../node_modules/@angular/forms';
 
 import { Question } from '../question.model';
 import { AddQuestionService } from './add-question.service';
@@ -18,13 +18,11 @@ export class AddQuestionComponent {
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
     this.addQuestionFormGroup = this.formBuilder.group({
+      'options': this.formBuilder.array([])
     })
   }
-
-  // formInitialized(name: string, form: FormGroup) {
-  //   this.addQuestionForm.setControl(name, form);
-  // }
               
   onAddQuestion() {
     this.addQuestionService.addQuestion(this.addQuestionFormGroup)

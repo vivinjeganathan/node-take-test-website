@@ -4,14 +4,9 @@
 </div>
 <div class="column">
     <form [formGroup]="addQuestionFormGroup" novalidate (ngsubmit)="addQuestion(addQuestionForm)">
-        <!-- <app-basic-details (formInitialized)="formInitialized('basicDetails', $event)"></app-basic-details> <br> <hr>
-        <app-main-details (formInitialized)="formInitialized('mainDetails', $event)"></app-main-details> <br> <hr>
-        <app-additional-details (formInitialized)="formInitialized('additionalDetails', $event)"></app-additional-details> <hr>
-        <app-action-details (formInitialized)="formInitialized('actionDetails', $event)" (questionAdded)="onAddQuestion()"></app-action-details> -->
-
-        <app-basic-details [formGroup]="addQuestionFormGroup"></app-basic-details> <br> <hr>
-        <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <br> <hr>
-        <app-additional-details [formGroup]="addQuestionFormGroup"></app-additional-details> <hr>
+        <app-basic-details [formGroup]="addQuestionFormGroup"></app-basic-details>  <hr>
+        <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <hr>
+        <app-additional-details [formGroup]="addQuestionFormGroup"></app-additional-details>
         <app-action-details [formGroup]="addQuestionFormGroup" (questionAdded)="onAddQuestion()"></app-action-details>
     </form>
 </div>
