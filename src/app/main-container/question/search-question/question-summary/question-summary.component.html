@@ -1,5 +1,8 @@
 <th scope="row">{{number+1}}</th>
-<td>{{question.subject}} {{question.unit}} {{question.chapter}} {{question.type}} {{question.description}}</td> 
+<td>{{question.description}} <br> 
+      <div *ngFor="let option of question.options">
+            {{ option.value }}
+      </div> 
 <td><button 
       class="btn btn-primary"
       (click)="OnDeleteQuestion()">Delete</button> 
