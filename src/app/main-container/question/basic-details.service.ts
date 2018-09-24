@@ -39,32 +39,46 @@ export class BasicDetailsService {
 
             this.allSubjects = response as [Subject]
 
-            this.subjectsSelector.options = (this.allSubjects).map(subject => subject.name)
+            this.subjectsSelector.options = this.subjectsSelector.options.concat((this.allSubjects).map(subject => subject.name))
             return this.subjectsSelector
         }))
     }
 
     getUnits(subjectName: string): CustomSelector {
 
-        var subject = (this.allSubjects).filter((subject) => 
-             (subject.name == subjectName)
-        )[0]
+        this.unitsSelector.options.length = 0
+        this.unitsSelector.options.push('Select')
 
-        this.unitsSelector.options = subject.units.map(unit => unit.name)
+        if (subjectName != 'Select' && subjectName.length > 0) {
+
+            var subject = (this.allSubjects).filter((subject) => 
+                (subject.name == subjectName)
+            )[0]
+
+            this.unitsSelector.options = this.unitsSelector.options.concat(subject.units.map(unit => unit.name))
+        }
+        
         return this.unitsSelector
     }
 
     getChapters(subjectName: string, unitName: string): CustomSelector {
         
-        var subject = (this.allSubjects).filter((subject) => 
-             (subject.name == subjectName)
-        )[0]
+        this.chaptersSelector.options.length = 0
+        this.chaptersSelector.options.push('Select')
 
-        var unit = subject.units.filter((unit) => 
-            (unit.name == unitName)
-        )[0]
+        if (subjectName != 'Select' && unitName != 'Select' && subjectName.length > 0  && unitName.length > 0) {
 
-        this.chaptersSelector.options = unit.chapters.map(chapter => chapter.name)
+            var subject = (this.allSubjects).filter((subject) => 
+                (subject.name == subjectName)
+            )[0]
+
+            var unit = subject.units.filter((unit) => 
+                (unit.name == unitName)
+            )[0]
+
+            this.chaptersSelector.options = this.chaptersSelector.options.concat(unit.chapters.map(chapter => chapter.name))
+        }
+
         return this.chaptersSelector
     }
 
@@ -73,17 +87,21 @@ export class BasicDetailsService {
         this.questionTypesSelector = new CustomSelector
         this.questionTypesSelector.name = "type"
         this.questionTypesSelector.title = "Question Type"
+        this.questionTypesSelector.options.push('Select')
 
         this.subjectsSelector = new CustomSelector
         this.subjectsSelector.name = "subject"
         this.subjectsSelector.title = "Subject"
+        this.subjectsSelector.options.push('Select')
 
         this.unitsSelector = new CustomSelector
         this.unitsSelector.name = "unit"
         this.unitsSelector.title = "Unit"
+        this.unitsSelector.options.push('Select')
 
         this.chaptersSelector = new CustomSelector
         this.chaptersSelector.name = "chapter"
         this.chaptersSelector.title = "Chapter"
+        this.chaptersSelector.options.push('Select')
     }
 }

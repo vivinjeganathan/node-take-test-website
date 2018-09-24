@@ -2,6 +2,7 @@ import { Component, OnInit, Input} from '@angular/core';
 import { Question } from '../question.model';
 import { SearchQuestionService } from './search-question.service';
 import { QuestionService } from '../question.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-search-question',
@@ -12,8 +13,9 @@ import { QuestionService } from '../question.service';
 export class SearchQuestionComponent {
 
   questions: Question[]
+  public formGroup: FormGroup;
   
-  constructor(private searchQuestionService: SearchQuestionService, private questionService: QuestionService) { }
+  constructor(private searchQuestionService: SearchQuestionService, private questionService: QuestionService, public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.questions = this.searchQuestionService.getQuestions()
@@ -23,6 +25,9 @@ export class SearchQuestionComponent {
       console.log('In sear - ' + this.questions)
       
     });
+
+    this.formGroup = this.formBuilder.group({
+    })
   }
 
   onDeleteQuestion(question: Question) {
