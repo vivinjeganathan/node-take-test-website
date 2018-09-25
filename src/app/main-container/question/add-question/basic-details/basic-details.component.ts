@@ -17,6 +17,8 @@ export class BasicDetailsComponent implements OnInit {
   unitsSelector: CustomSelector
   chaptersSelector: CustomSelector
   
+  @Output() selectorValueChanged = new EventEmitter();
+
   constructor(private formBuilder: FormBuilder, private basicDetailsService: BasicDetailsService) { }
 
   ngOnInit() {
@@ -49,8 +51,25 @@ export class BasicDetailsComponent implements OnInit {
     })
   }
 
-  onSelectQuestionType(question: CustomSelector) {
+  onSelectValue(customSelector: CustomSelector) {
     
+    if (customSelector.title == "Question Type") {
+      
+
+    } else if (customSelector.title == "Subject") {
+      
+      this.onSelectSubject(customSelector)
+
+    } else if (customSelector.title == "Unit") {
+      
+      this.onSelectunit(customSelector)
+
+    } else if (customSelector.title == "Chapter") {
+      
+      this.onSelectChapter(customSelector)
+    }
+
+    this.selectorValueChanged.emit();
   }
 
   onSelectSubject(customSelector: CustomSelector) {

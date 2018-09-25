@@ -1,9 +1,12 @@
-<th scope="row">{{number+1}}</th>
-<td>{{question.description}} <br> 
+
+<td>{{number+1}}</td>
+<td>{{question.description}}
       <div *ngFor="let option of question.options">
             {{ option.value }}
       </div> 
-<td><button 
+
+<button 
       class="btn btn-primary"
       (click)="OnDeleteQuestion()">Delete</button> 
 </td>
+      

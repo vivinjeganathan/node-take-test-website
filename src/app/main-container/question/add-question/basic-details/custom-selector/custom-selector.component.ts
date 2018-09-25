@@ -12,10 +12,7 @@ export class CustomSelectorComponent implements OnInit {
   @Input() formGroup: FormGroup
   @Input() customSelector: CustomSelector;
 
-  @Output() questionTypeChanged = new EventEmitter<CustomSelector>();
-  @Output() subjectChanged = new EventEmitter<CustomSelector>();
-  @Output() unitChanged = new EventEmitter<CustomSelector>();
-  @Output() chapterChanged = new EventEmitter<CustomSelector>();
+  @Output() selectorValueChanged = new EventEmitter<CustomSelector>();
 
   constructor(private controlContainer: ControlContainer) { }
 
@@ -28,16 +25,7 @@ export class CustomSelectorComponent implements OnInit {
     selectFormControl.valueChanges.subscribe((value) => {
 
       this.customSelector.selectedOption = value
-
-      if (this.customSelector.title == "Question Type") {
-        this.questionTypeChanged.emit(this.customSelector);
-      } else if (this.customSelector.title == "Subject") {
-        this.subjectChanged.emit(this.customSelector);
-      } else if (this.customSelector.title == "Unit") {
-        this.unitChanged.emit(this.customSelector);
-      } else if (this.customSelector.title == "Chapter") {
-        this.chapterChanged.emit(this.customSelector);
-      }
+      this.selectorValueChanged.emit(this.customSelector);
 
     }); 
   }

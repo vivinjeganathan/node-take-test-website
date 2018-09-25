@@ -27,4 +27,8 @@ export class AddQuestionComponent {
   onAddQuestion() {
     this.addQuestionService.addQuestion(this.addQuestionFormGroup)
   } 
+
+  onSelectValue() {
+    console.log('value change notified')
+  }
 }

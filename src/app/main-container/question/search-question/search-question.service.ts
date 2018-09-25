@@ -1,9 +1,11 @@
 import { Injectable, EventEmitter } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 import { QuestionService } from "../question.service";
 import { Question } from "../question.model";
 import {environment} from '../../../../environments/environment';
+import * as _ from 'lodash';
+import { Params } from "@angular/router";
 
 @Injectable()
 export class SearchQuestionService {
@@ -16,9 +18,24 @@ export class SearchQuestionService {
 
     questionsChanged = new EventEmitter<Question[]>()
 
-    getQuestions() {
+    getQuestions(params: Params) {
 
-        this.http.get(this.questionURL).subscribe(
+        let subject = params['subject'];
+        let unit = params['unit'];
+        let chapter = params['chapter'];
+
+        let queryParams = new HttpParams();
+
+        if (!_.isUndefined(params)) {
+            queryParams = _.isUndefined(subject) ? queryParams : queryParams.append('subject', subject);
+            queryParams = _.isUndefined(unit) ? queryParams : queryParams.append('unit', unit);
+            queryParams = _.isUndefined(chapter) ? queryParams : queryParams.append('chapter', chapter);
+        }
+
+        console.log('queryParams')
+        console.log(queryParams)
+        
+        this.http.get(this.questionURL, { params: queryParams } ).subscribe(
             (response) => {
                 this.questions = response['question'] as [Question]
                 this.questionsChanged.emit(this.questions)

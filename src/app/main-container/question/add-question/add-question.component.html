@@ -4,7 +4,11 @@
 </div>
 <div class="column">
     <form [formGroup]="addQuestionFormGroup">
-        <app-basic-details [formGroup]="addQuestionFormGroup"></app-basic-details>  <hr>
+        
+        <app-basic-details [formGroup]="addQuestionFormGroup"
+                           (selectorValueChanged)="onSelectValue($event)">
+        </app-basic-details>  <hr>
+
         <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <hr>
         <app-additional-details [formGroup]="addQuestionFormGroup"></app-additional-details>
         <app-action-details [formGroup]="addQuestionFormGroup" (questionAdded)="onAddQuestion()"></app-action-details>
