@@ -6,7 +6,7 @@
     <form [formGroup]="addQuestionFormGroup">
         
         <app-basic-details [formGroup]="addQuestionFormGroup"
-                           (selectorValueChanged)="onSelectValue($event)">
+                           (selectorValueChanged)="onSelectValue()">
         </app-basic-details>  <hr>
 
         <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <hr>
