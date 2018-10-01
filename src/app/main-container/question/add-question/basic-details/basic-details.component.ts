@@ -85,7 +85,6 @@ export class BasicDetailsComponent implements OnInit {
 
   onSelectunit(customSelector: CustomSelector) {
 
-    console.log('i am called')
     this.chaptersSelector = this.basicDetailsService.getChapters(this.subjectsSelector.selectedOption, customSelector.selectedOption)
     this.chaptersSelector.selectedOption = this.chaptersSelector.options[0]
     this.formGroup.get('chapter').setValue(this.chaptersSelector.selectedOption)

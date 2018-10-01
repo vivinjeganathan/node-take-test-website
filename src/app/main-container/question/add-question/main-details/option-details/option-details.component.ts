@@ -17,10 +17,7 @@ export class OptionDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.formGroup.addControl('value', new FormControl(''))
-    console.log('asdfgh-----------')
-    console.log(this.formGroup)
-    
+    this.formGroup.addControl('value', new FormControl(''))    
   }
 
 

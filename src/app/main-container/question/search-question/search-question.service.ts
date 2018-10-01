@@ -31,15 +31,11 @@ export class SearchQuestionService {
             queryParams = _.isUndefined(unit) ? queryParams : queryParams.append('unit', unit);
             queryParams = _.isUndefined(chapter) ? queryParams : queryParams.append('chapter', chapter);
         }
-
-        console.log('queryParams')
-        console.log(queryParams)
         
         this.http.get(this.questionURL, { params: queryParams } ).subscribe(
             (response) => {
-                this.questions = response['question'] as [Question]
+                this.questions = response as [Question]
                 this.questionsChanged.emit(this.questions)
-                console.log(this.questions)
             },
             (error) => console.log(error)
         )
@@ -51,7 +47,7 @@ export class SearchQuestionService {
 
         var deleteUrl = this.questionURL + "/" + question._id
         this.http.delete(deleteUrl).subscribe((response) => {
-            console.log(response)
+
             this.questions.splice(this.questions.indexOf(question), 1);
             this.questionsChanged.emit(this.questions)
         }, (error) => console.log(error))

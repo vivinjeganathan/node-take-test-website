@@ -8,6 +8,7 @@ import { Params, ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-search-question',
   templateUrl: './search-question.component.html',
+  styleUrls: ['./search-question.component.css'],
   providers: [SearchQuestionService]
 })
 
@@ -27,8 +28,6 @@ export class SearchQuestionComponent {
     this.searchQuestionService.questionsChanged.subscribe((question: Question) => {
       
       this.questions = this.searchQuestionService.questions
-      console.log('In sear - ' + this.questions)
-      
     });
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
