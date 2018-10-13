@@ -29,6 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomSelectorComponent } from './main-container/question/add-question/basic-details/custom-selector/custom-selector.component';
 import { BasicDetailsService } from './main-container/question/basic-details.service';
 import { MainDetailsService } from './main-container/question/add-question/main-details/main-details.service';
+import { AddTestComponent } from './main-container/tests/add-test/add-test.component';
+import { SearchTestComponent } from './main-container/tests/search-test/search-test.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { MainDetailsService } from './main-container/question/add-question/main-
     StudentsComponent,
     ReportsComponent,
     ManageAccountComponent,
-    CustomSelectorComponent
+    CustomSelectorComponent,
+    AddTestComponent,
+    SearchTestComponent
   ],
   imports: [
     BrowserModule,
