@@ -1,5 +1,3 @@
-import { FormGroup } from "../../../../node_modules/@angular/forms";
-
 export class Question {
     public _id: string;
     public exam: string;

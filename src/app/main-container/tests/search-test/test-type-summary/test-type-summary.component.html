@@ -1,0 +1,30 @@
+<div>
+  <div align="left"> 
+    <label style="font-size:20px;">{{ testCategory.name }}</label> 
+  </div>
+
+  <div align="left">
+      <label style="font-size:15px;">Total tests: </label><span class="badge">2</span>
+  </div>
+  <!-- {{ testCategory.tests.count }} -->
+  <div align="left"> 
+    <label style="font-size:15px;">Questions per test: <span class="badge">30</span></label>
+    
+    <div style="float:right">
+        <label style="font-size:15px;">Max Time Limit: </label><span class="badge">{{ testCategory.duration }}</span>
+    </div>
+    
+  </div>
+
+  <div align="left"> 
+      <label style="font-size:15px;">Subjects included:</label> 
+      <span class="badge">Maths</span>
+      <span class="badge">Physics</span>
+      <span class="badge">Chemistry</span>
+  </div>
+</div> 
+
+
+<!-- <app-test-summary
+              [question]="question">
+          </app-test-summary> -->

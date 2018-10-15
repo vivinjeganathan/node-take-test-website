@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Examination } from '../test.model';
+import { TestService } from '../test.service';
 
 @Component({
   selector: 'app-search-test',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchTestComponent implements OnInit {
 
-  constructor() { }
+  examinations: Examination[] = []
+  
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
+
+    this.examinations = this.testService.getAllExaminations()
+
+    this.testService.examinationsChanged.subscribe((examinations: Examination) => {
+      this.examinations = this.testService.examinations
+      console.log(this.examinations[0].testCategory[0].duration)
+      console.log(this.examinations[1].testCategory[0].duration)
+    });
   }
 
 }

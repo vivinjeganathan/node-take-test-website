@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './main-container/question/question.component';
@@ -31,7 +32,10 @@ import { BasicDetailsService } from './main-container/question/basic-details.ser
 import { MainDetailsService } from './main-container/question/add-question/main-details/main-details.service';
 import { AddTestComponent } from './main-container/tests/add-test/add-test.component';
 import { SearchTestComponent } from './main-container/tests/search-test/search-test.component';
-
+import { TestSummaryComponent } from './main-container/tests/search-test/test-summary/test-summary.component';
+import { TestListComponent } from './main-container/tests/search-test/test-list/test-list.component';
+import { TestTypeSummaryComponent } from './main-container/tests/search-test/test-type-summary/test-type-summary.component';
+import { TestService } from './main-container/tests/test.service'
 
 @NgModule({
   declarations: [
@@ -56,16 +60,20 @@ import { SearchTestComponent } from './main-container/tests/search-test/search-t
     ManageAccountComponent,
     CustomSelectorComponent,
     AddTestComponent,
-    SearchTestComponent
+    SearchTestComponent,
+    TestSummaryComponent,
+    TestListComponent,
+    TestTypeSummaryComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [QuestionService, SearchQuestionService, AddQuestionService, BasicDetailsService, MainDetailsService],
+  providers: [QuestionService, SearchQuestionService, AddQuestionService, BasicDetailsService, MainDetailsService, TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

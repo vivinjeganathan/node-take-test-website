@@ -1,0 +1,29 @@
+<ngb-accordion [closeOthers]="true">
+    
+    <ngb-panel *ngFor="let examination of examinations">
+
+        <ng-template ngbPanelTitle>
+            {{examination.name}}
+        </ng-template>
+
+        <ng-template ngbPanelContent>
+
+                <ngb-accordion [closeOthers]="true">
+                    <ngb-panel *ngFor="let category of examination.testCategory">
+                
+                        <ng-template ngbPanelTitle>
+                            <app-test-type-summary [testCategory]="category"></app-test-type-summary>
+                        </ng-template>
+                
+                        <ng-template ngbPanelContent>
+                            content
+                        </ng-template>
+                        
+                    </ngb-panel>
+                </ngb-accordion>
+
+        </ng-template>
+        
+    </ngb-panel>
+  
+</ngb-accordion>
