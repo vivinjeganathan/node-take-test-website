@@ -8,7 +8,7 @@
   </div>
   <!-- {{ testCategory.tests.count }} -->
   <div align="left"> 
-    <label style="font-size:15px;">Questions per test: <span class="badge">30</span></label>
+    <label style="font-size:15px;">Questions per test: <span class="badge">{{testCategory.maxNoOfQuestions}}</span></label>
     
     <div style="float:right">
         <label style="font-size:15px;">Max Time Limit: </label><span class="badge">{{ testCategory.duration }}</span>
@@ -17,10 +17,10 @@
   </div>
 
   <div align="left"> 
-      <label style="font-size:15px;">Subjects included:</label> 
-      <span class="badge">Maths</span>
-      <span class="badge">Physics</span>
-      <span class="badge">Chemistry</span>
+      <label style="font-size:15px;">Subjects included:</label>
+      <span *ngFor="let subject of testCategory.subjects">
+        {{ subject.name }}
+      </span> 
   </div>
 </div> 
 

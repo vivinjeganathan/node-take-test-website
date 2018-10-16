@@ -1,6 +1,9 @@
+import { Subject } from "../question/subject.model";
+
 export class TestCategory {
     public name: string
-    public subjects: [string]
+    public maxNoOfQuestions: string
+    public subjects: [Subject]
     public duration: string
     public insructionSet: string
     public tests:[Test]
