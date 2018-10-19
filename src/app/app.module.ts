@@ -35,7 +35,9 @@ import { SearchTestComponent } from './main-container/tests/search-test/search-t
 import { TestSummaryComponent } from './main-container/tests/search-test/test-summary/test-summary.component';
 import { TestListComponent } from './main-container/tests/search-test/test-list/test-list.component';
 import { TestTypeSummaryComponent } from './main-container/tests/search-test/test-type-summary/test-type-summary.component';
-import { TestService } from './main-container/tests/test.service'
+import { TestService } from './main-container/tests/test.service';
+import { TestBasicDetailsComponent } from './main-container/tests/add-test/test-basic-details/test-basic-details.component';
+import { TestAdditionalDetailsComponent } from './main-container/tests/add-test/test-additional-details/test-additional-details.component'
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { TestService } from './main-container/tests/test.service'
     SearchTestComponent,
     TestSummaryComponent,
     TestListComponent,
-    TestTypeSummaryComponent
+    TestTypeSummaryComponent,
+    TestBasicDetailsComponent,
+    TestAdditionalDetailsComponent
   ],
   imports: [
     NgbModule,

@@ -1,0 +1,72 @@
+<div class="form-group" [formGroup]='formGroup'>
+  <div class="form-group" [formGroup]='formGroup'>
+
+    <div class="form-row">
+      
+      <div class="form-group col-md-4">
+          <label for="duration">Duration</label>
+          <input class="form-control" id="duration" type="text" placeholder="2 hours" readonly>
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="negativeMarking">Total Marks</label>
+          <input class="form-control" id="negativeMarking" type="text" placeholder="90" readonly>
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="negativeMarking">Negative Marking Percentage</label>
+          <input class="form-control" id="negativeMarking" type="text" placeholder="0.25" readonly>
+      </div>
+
+    </div> 
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="difficultyLevel">Difficulty Level</label>
+          <select class="form-control" id="difficultyLevel">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+    </div>
+
+    <br/>
+    
+    <h5>Subjects included</h5>
+
+    <div class="form-row">
+      <div class="row">
+          <div class="col-sm-6">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                  Maths
+              </div>
+              <div class="card-body">
+                <p class="card-text"><b>14 Questions</b> selected out of total 30 questions</p>
+                <p class="card-text">Max Marks: 30</p>
+                <a href="#" class="card-link">View and Modify Questions</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            
+              <div class="card" style="width: 18rem;">
+                  <div class="card-header">
+                      Physics
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text"><b>24 Questions</b> selected out of total 30 questions</p>
+                    <p class="card-text">Max Marks: 30</p>
+                    <a href="#" class="card-link">View and Modify Questions</a>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+  </div>

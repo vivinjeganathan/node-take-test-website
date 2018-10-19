@@ -20,8 +20,6 @@ export class SearchTestComponent implements OnInit {
 
     this.testService.examinationsChanged.subscribe((examinations: Examination) => {
       this.examinations = this.testService.examinations
-      console.log(this.examinations[0].testCategory[0].duration)
-      console.log(this.examinations[1].testCategory[0].duration)
     });
   }
 

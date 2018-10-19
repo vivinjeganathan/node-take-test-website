@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-test',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-test.component.css']
 })
 export class AddTestComponent implements OnInit {
+  
+  public addTestFormGroup: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.addTestFormGroup = this.formBuilder.group({
+      
+    })
   }
 
+  onCreateTest() {
+    
+  }
 }
