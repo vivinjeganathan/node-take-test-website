@@ -37,7 +37,12 @@ import { TestListComponent } from './main-container/tests/search-test/test-list/
 import { TestTypeSummaryComponent } from './main-container/tests/search-test/test-type-summary/test-type-summary.component';
 import { TestService } from './main-container/tests/test.service';
 import { TestBasicDetailsComponent } from './main-container/tests/add-test/test-basic-details/test-basic-details.component';
-import { TestAdditionalDetailsComponent } from './main-container/tests/add-test/test-additional-details/test-additional-details.component'
+import { TestAdditionalDetailsComponent } from './main-container/tests/add-test/test-additional-details/test-additional-details.component';
+import { TestSubjectSummaryComponent } from './main-container/tests/add-test/test-subject-summary/test-subject-summary.component';
+import { TestSubjectDetailsComponent } from './main-container/tests/add-test/test-subject-details/test-subject-details.component';
+import { TestSubjectAddComponent } from './main-container/tests/add-test/test-subject-add/test-subject-add.component';
+import { TestDetailsComponent } from './main-container/tests/search-test/test-details/test-details.component';
+import { TestGroupComponent } from './main-container/tests/search-test/test-group/test-group.component'
 
 @NgModule({
   declarations: [
@@ -67,7 +72,12 @@ import { TestAdditionalDetailsComponent } from './main-container/tests/add-test/
     TestListComponent,
     TestTypeSummaryComponent,
     TestBasicDetailsComponent,
-    TestAdditionalDetailsComponent
+    TestAdditionalDetailsComponent,
+    TestSubjectSummaryComponent,
+    TestSubjectDetailsComponent,
+    TestSubjectAddComponent,
+    TestDetailsComponent,
+    TestGroupComponent
   ],
   imports: [
     NgbModule,
