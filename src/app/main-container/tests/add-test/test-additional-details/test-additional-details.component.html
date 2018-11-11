@@ -5,44 +5,58 @@
       
       <div class="form-group col-md-4">
           <label for="duration">Duration</label>
-          <input class="form-control" id="duration" type="text" value="2 hours">
+          <input class="form-control" 
+                 formControlName="duration" 
+                 type="text" 
+                 [value]="test?.duration">
       </div>
 
       <div class="form-group col-md-4">
           <label for="negativeMarking">Total Marks</label>
-          <input class="form-control" id="negativeMarking" type="text" value="90">
+          <input class="form-control"
+                 formControlName="totalMarks" 
+                 type="text" 
+                 [value]="test?.maxMarks">
       </div>
 
       <div class="form-group col-md-4">
           <label for="negativeMarking">Negative Marking Percentage</label>
-          <input class="form-control" id="negativeMarking" type="text" value="0.25">
+          <input class="form-control"
+                 formControlName="negativeMarking" 
+                 type="text" 
+                 [value]="test?.negativeMarkingPercentage">
       </div>
 
     </div> 
     
     <div class="form-row">
+
       <div class="form-group col-md-6">
           <label for="difficultyLevel">Difficulty Level</label>
-          <select class="form-control" id="difficultyLevel">
+          <select class="form-control" 
+                  formControlName="difficultyLevel"
+                  [value]="test?.difficultyLevel">
+            <option>Select</option>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
           </select>
-        </div>
-    </div>
+      </div>
 
-    <div class="form-row">
       <div class="form-group col-md-6">
-          <label for="instructionSet">Instruction Set</label>
-          <select class="form-control" id="instructionSet">
-            <option>Instruction Set 1</option>
-            <option>Instruction Set 2</option>
-            <option>Instruction Set 3</option>
-          </select>
-        </div>
+        <label for="instructionSet">Instruction Set</label>
+        <select class="form-control"
+                formControlName="instructionSet"
+                [value]="test?.instructionSet">
+          <option>Select</option>
+          <option>Instruction Set 1</option>
+          <option>Instruction Set 2</option>
+          <option>Instruction Set 3</option>
+        </select>
+      </div>
+        
     </div>
 
     <br/>
-    
     
   </div>

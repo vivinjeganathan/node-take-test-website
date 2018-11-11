@@ -3,27 +3,26 @@
       
       <div class="form-group col-md-6">
         <label for="testName">Test Name</label>
-        <input type="text" class="form-control" id="testName" placeholder="Example: AIEEE 2017 Final Paper">
+        <input type="text" class="form-control" formControlName="testName" id="testName" placeholder="Example: AIEEE 2017 Final Paper">
       </div>
   
     </div>
     <div class="form-row">
       
       <div class="form-group col-md-6">
+
         <label for="selectExam">Select Exam</label>
-        <select class="form-control" id="selectExam">
-          <option>AIEEE</option>
-          <option>GMAT</option>
-          <option>GRE</option>
+        <select class="form-control" formControlName="examSelectFormControl">
+            <option *ngFor="let exam of examinations" [value]="exam.name">{{exam.name}}
+            </option>
         </select>
       </div>
-  
+      
       <div class="form-group col-md-6">
         <label for="selectTestCategory">Select Test Category</label>
-        <select class="form-control" id="selectTestCategory">
-          <option>Revision Test</option>
-          <option>Mock Test</option>
-          <option>Cumulative Test</option>
+        <select class="form-control" id="selectTestCategory" formControlName="selectTestCategory">
+            <option *ngFor="let testCategory of testCategories" [value]="testCategory.name">{{testCategory.name}}
+            </option>
         </select>
       </div>
   

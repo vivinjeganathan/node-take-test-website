@@ -18,7 +18,13 @@ export class TestCategory {
 
 export class Test {
     public name: string
+    public examination: string
+    public testCategory: string
     public difficultyLevel: string
     public subjects: [string]
     public questions: [string]
+    public negativeMarkingPercentage: string
+    public duration: string
+    public instructionSet: string
+    public maxMarks: string
 }
