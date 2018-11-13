@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SubjectInTestCategory } from '../../test.model';
 
 @Component({
   selector: 'app-test-subject-summary',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-subject-summary.component.css']
 })
 export class TestSubjectSummaryComponent implements OnInit {
+
+  @Input() subjectInTestCategory: SubjectInTestCategory
 
   constructor() { }
 

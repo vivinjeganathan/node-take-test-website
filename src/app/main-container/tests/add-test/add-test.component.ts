@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { TestService } from '../test.service';
-import { Examination, Test, TestCategory } from '../test.model';
+import { Examination, Test, TestCategory, SubjectInTestCategory } from '../test.model';
 
 @Component({
   selector: 'app-add-test',
@@ -11,8 +11,9 @@ import { Examination, Test, TestCategory } from '../test.model';
 export class AddTestComponent implements OnInit {
   
   public addTestFormGroup: FormGroup;
-  test: Test = new Test
   examinations: Examination[] = []
+  test: Test = new Test
+  testCategory: TestCategory
   
   constructor(private formBuilder: FormBuilder, private testService: TestService) { }
 
@@ -30,10 +31,13 @@ export class AddTestComponent implements OnInit {
 
   onSelectTestCategory(testCategory: TestCategory) {
 
+    this.testCategory = testCategory
+    
     this.test.duration = (typeof testCategory.duration == "undefined") ? "" : testCategory.duration
     this.test.maxMarks = (typeof testCategory.maxMarks == "undefined") ? "" : testCategory.maxMarks
     this.test.instructionSet = (typeof testCategory.insructionSet == "undefined") ? "" : testCategory.insructionSet
     this.test.negativeMarkingPercentage = (typeof testCategory.negativeMarkingPercentage == "undefined") ? "" : testCategory.negativeMarkingPercentage
+    this.test.subjects = (typeof testCategory.subjects == "undefined") ? new Array<SubjectInTestCategory>() : testCategory.subjects
   }
 
   onCreateTest() {

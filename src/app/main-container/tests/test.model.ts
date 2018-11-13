@@ -7,7 +7,7 @@ export class Examination {
 
 export class TestCategory {
     public name: string
-    public subjects: [Subject]
+    public subjects: [SubjectInTestCategory]
     public maxNoOfQuestions: string
     public maxMarks: string
     public negativeMarkingPercentage: string
@@ -21,10 +21,16 @@ export class Test {
     public examination: string
     public testCategory: string
     public difficultyLevel: string
-    public subjects: [string]
-    public questions: [string]
+    public subjects: Array<SubjectInTestCategory>
     public negativeMarkingPercentage: string
     public duration: string
     public instructionSet: string
     public maxMarks: string
+}
+
+export class SubjectInTestCategory {
+    public subject: Subject
+    public maxNoOfQuestions: string
+    public maxMarks: string
+    public questions: [string]
 }
