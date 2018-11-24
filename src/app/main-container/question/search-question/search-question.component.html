@@ -3,21 +3,21 @@
 </app-basic-details>
 
 <div class="table-responsive">
-<table class="table table-bordered table-sm">
-  <thead class="thead-light">
-    <tr class="d-flex">
-      <th>#</th>
-      <th>Question Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let question of questions; let i = index">
-        <app-question-summary
-          [number]="i"
-          [question]="question"
-          (questionDeleted)="onDeleteQuestion($event)"> 
-        </app-question-summary>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-bordered table-sm">
+    <thead class="thead-light">
+      <tr class="d-flex">
+        <th>#</th>
+        <th>Question Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions; let i = index">
+          <app-question-summary
+            [number]="i"
+            [question]="question"
+            (questionDeleted)="onDeleteQuestion($event)"> 
+          </app-question-summary>
+      </tr>
+    </tbody>
+  </table>
 </div>

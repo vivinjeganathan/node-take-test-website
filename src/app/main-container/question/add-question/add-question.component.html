@@ -9,8 +9,15 @@
                            (selectorValueChanged)="onSelectValue()">
         </app-basic-details>  <hr>
 
-        <app-main-details [formGroup]="addQuestionFormGroup"></app-main-details> <hr>
-        <app-additional-details [formGroup]="addQuestionFormGroup"></app-additional-details>
-        <app-action-details [formGroup]="addQuestionFormGroup" (questionAdded)="onAddQuestion()"></app-action-details>
+        <app-main-details [formGroup]="addQuestionFormGroup">
+        </app-main-details> <hr>
+
+        <app-additional-details [formGroup]="addQuestionFormGroup">
+        </app-additional-details>
+
+        <app-action-details [formGroup]="addQuestionFormGroup" 
+                            (questionAdded)="onAddQuestion()">
+        </app-action-details>
+
     </form>
 </div>

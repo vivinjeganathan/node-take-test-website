@@ -1,0 +1,44 @@
+<div class="form-group" [formGroup]='formGroup'>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{ subjectInTestCategory.subject.name }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="onClose()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm">
+        
+        <thead class="thead-light">
+          <tr class="d-flex">
+            <th>Question Details</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let question of questions; let i = index">
+              <app-test-question-summary-modal
+                [number]="i"
+                [question]="question"
+                [formGroup]="formGroup"> 
+              </app-test-question-summary-modal>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" 
+            class="btn btn-secondary" 
+            data-dismiss="modal"
+            (click)="onClose()">Close</button>
+    <button type="button" 
+            class="btn btn-primary"
+            (click)="onSaveQuestions()">Save changes</button>
+  </div>
+</div>

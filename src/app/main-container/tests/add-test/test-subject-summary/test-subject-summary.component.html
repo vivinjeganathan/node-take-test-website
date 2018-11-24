@@ -1,3 +1,4 @@
+<div class="form-group" [formGroup]='formGroup'>
 <div class="card" style="width: 18rem">
 
   <div class="card-header">
@@ -8,20 +9,31 @@
 
     <div class="input-group input-group-sm">
       <div class="input-group-prepend"><i class="input-group-text">Maximum Marks</i></div>
-      <input type="text" class="form-control" value={{subjectInTestCategory.maxMarks}}>
+      <input type="text" class="form-control" formControlName="maxMarks" value={{subjectInTestCategory.maxMarks}}>
     </div>
     
     <br/>
 
     <div class="input-group input-group-sm">
       <div class="input-group-prepend"><i class="input-group-text">No of Questions</i></div>
-      <input type="text" class="form-control" value={{subjectInTestCategory.maxNoOfQuestions}}>
+      <input type="text" class="form-control" formControlName="noOfQuestions" value={{subjectInTestCategory.maxNoOfQuestions}}>
     </div>
 
     <br/>
+    
+    <p class="card-text">
+      <b> 
+        <label *ngIf="subjectInTestCategory.questions !== undefined; else other_content"> 
+          {{ subjectInTestCategory.questions.length }} 
+        </label> 
+        <ng-template #other_content> <label> 0 </label></ng-template>
+      </b> Question(s) selected
+    </p>
 
-    <p class="card-text"><b>(14 Questions selected)</b></p>
-    <a href="#" class="card-link">View and Modify Questions</a>
+    <button class="btn btn-outline-primary" 
+            (click)="open()">View and Modify Questions
+    </button>
 
   </div>
+</div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { TestService } from '../test.service';
 import { Examination, Test, TestCategory, SubjectInTestCategory } from '../test.model';
+import { AddTestService } from './add-test.service';
 
 @Component({
   selector: 'app-add-test',
@@ -15,7 +16,9 @@ export class AddTestComponent implements OnInit {
   test: Test = new Test
   testCategory: TestCategory
   
-  constructor(private formBuilder: FormBuilder, private testService: TestService) { }
+  constructor(private formBuilder: FormBuilder,
+              private testService: TestService,
+              private addTestService: AddTestService) { }
 
   ngOnInit() {
 
@@ -26,6 +29,7 @@ export class AddTestComponent implements OnInit {
 
     this.addTestFormGroup = this.formBuilder.group({
       
+      'subjects': this.formBuilder.array([])
     })
   }
 
@@ -41,8 +45,7 @@ export class AddTestComponent implements OnInit {
   }
 
   onCreateTest() {
-    
-    console.log("Vivin")
-    console.log(this.addTestFormGroup)
+
+    //this.addTestService.addTest(this.addTestFormGroup.value, this.test)
   }
 }

@@ -1,11 +1,16 @@
-<h5>Subjects included</h5>
+<div class="form-group" [formGroup]='formGroup'>
+  <h5>Subjects included</h5>
 
-<div class="card-deck">
+  <div class="card-deck">
 
-  <app-test-subject-summary *ngFor="let subjectInTestCategory of testCategory?.subjects"
-                            [subjectInTestCategory]="subjectInTestCategory">
-  </app-test-subject-summary>
+    <app-test-subject-summary *ngFor="let subjectInTestCategory of testCategory?.subjects; let i = index"
+                              [subjectInTestCategory]="subjectInTestCategory"
+                              [formGroup]="subjectFormGroups[i]">
+    </app-test-subject-summary>
 
-  <app-test-subject-add></app-test-subject-add>
+    <app-test-subject-add>
+      
+    </app-test-subject-add>
 
+  </div>
 </div>

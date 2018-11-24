@@ -16,12 +16,12 @@
     <br>
 
     <div formArrayName="options" *ngFor="let option of optionsFormArray.controls; let i = index">
-            <div [formGroupName]="i">
-                <app-option-details  
-                    [formGroup]="optionDetailsFormGroups[i]"
-                    [optionDetails]="optionDetailsArray[i]">
-                </app-option-details>
-            </div>
+        <div [formGroupName]="i">
+            <app-option-details  
+                [formGroup]="optionDetailsFormGroups[i]"
+                [optionDetails]="optionDetailsArray[i]">
+            </app-option-details>
+        </div>
     </div>
 
 </div>

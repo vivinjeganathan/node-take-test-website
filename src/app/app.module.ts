@@ -42,7 +42,10 @@ import { TestSubjectSummaryComponent } from './main-container/tests/add-test/tes
 import { TestSubjectDetailsComponent } from './main-container/tests/add-test/test-subject-details/test-subject-details.component';
 import { TestSubjectAddComponent } from './main-container/tests/add-test/test-subject-add/test-subject-add.component';
 import { TestDetailsComponent } from './main-container/tests/search-test/test-details/test-details.component';
-import { TestGroupComponent } from './main-container/tests/search-test/test-group/test-group.component'
+import { TestGroupComponent } from './main-container/tests/search-test/test-group/test-group.component';
+import { TestQuestionListModalComponent } from './main-container/tests/add-test/test-question-list-modal/test-question-list-modal.component';
+import { TestQuestionSummaryModalComponent } from './main-container/tests/add-test/test-question-summary-modal/test-question-summary-modal.component'
+import { AddTestService } from './main-container/tests/add-test/add-test.service';
 
 @NgModule({
   declarations: [
@@ -77,8 +80,11 @@ import { TestGroupComponent } from './main-container/tests/search-test/test-grou
     TestSubjectDetailsComponent,
     TestSubjectAddComponent,
     TestDetailsComponent,
-    TestGroupComponent
+    TestGroupComponent,
+    TestQuestionListModalComponent,
+    TestQuestionSummaryModalComponent
   ],
+  entryComponents: [TestQuestionListModalComponent],
   imports: [
     NgbModule,
     BrowserModule,
@@ -87,7 +93,13 @@ import { TestGroupComponent } from './main-container/tests/search-test/test-grou
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [QuestionService, SearchQuestionService, AddQuestionService, BasicDetailsService, MainDetailsService, TestService],
+  providers: [QuestionService, 
+              SearchQuestionService, 
+              AddQuestionService, 
+              BasicDetailsService, 
+              MainDetailsService, 
+              TestService,
+              AddTestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

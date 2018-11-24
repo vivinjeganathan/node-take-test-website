@@ -17,6 +17,7 @@ export class TestService {
 
     getAllExaminations() {
 
+        this.examinations.length = 0
         this.examinations.push(this.getDummyExamination())
 
         this.http.get(this.examinationURL).subscribe(

@@ -11,6 +11,8 @@ export class Question {
     public complexity: string;
     public maxTimeLimit: string;
     public solutionDescription: string;
+
+    public isSelected = false
 }
 
 export class Option {

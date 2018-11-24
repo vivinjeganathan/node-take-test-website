@@ -12,7 +12,8 @@
         </app-test-additional-details>
 
         <app-test-subject-details [test]="test"
-                                  [testCategory]="testCategory">
+                                  [testCategory]="testCategory"
+                                  [formGroup]="addTestFormGroup">
         </app-test-subject-details>
         
         <br/>
@@ -22,6 +23,8 @@
                 <button type="button" class="btn btn-info">Preview Question Paper</button>&nbsp; &nbsp;
                 <button type="button" class="btn btn-success" (click)="onCreateTest()">Add Test</button>
         </div>
+
         <br/>
+
     </form>
 </div>
