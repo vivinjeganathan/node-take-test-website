@@ -1,19 +1,19 @@
 <div class="column">
-    <form [formGroup]="addTestFormGroup">
+    <form [formGroup]="formGroup">
         
-        <app-test-basic-details [formGroup]="addTestFormGroup"
+        <app-test-basic-details [formGroup]="formGroup"
                                 [examinations]="examinations"
                                 [test]="test"
                                 (testCategoryChanged)="onSelectTestCategory($event)">
         </app-test-basic-details>
 
-        <app-test-additional-details [formGroup]="addTestFormGroup"
+        <app-test-additional-details [formGroup]="formGroup"
                                      [test]="test">
         </app-test-additional-details>
 
         <app-test-subject-details [test]="test"
                                   [testCategory]="testCategory"
-                                  [formGroup]="addTestFormGroup">
+                                  [formGroup]="formGroup">
         </app-test-subject-details>
         
         <br/>

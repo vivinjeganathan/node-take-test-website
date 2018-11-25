@@ -11,7 +11,7 @@ import { AddTestService } from './add-test.service';
 })
 export class AddTestComponent implements OnInit {
   
-  public addTestFormGroup: FormGroup;
+  public formGroup: FormGroup;
   examinations: Examination[] = []
   test: Test = new Test
   testCategory: TestCategory
@@ -27,7 +27,7 @@ export class AddTestComponent implements OnInit {
       this.examinations = this.testService.examinations
     });
 
-    this.addTestFormGroup = this.formBuilder.group({
+    this.formGroup = this.formBuilder.group({
       
       'subjects': this.formBuilder.array([])
     })
@@ -37,15 +37,31 @@ export class AddTestComponent implements OnInit {
 
     this.testCategory = testCategory
     
+    //Set default values from test category, this can be overridden in UI for every test
     this.test.duration = (typeof testCategory.duration == "undefined") ? "" : testCategory.duration
     this.test.maxMarks = (typeof testCategory.maxMarks == "undefined") ? "" : testCategory.maxMarks
     this.test.instructionSet = (typeof testCategory.insructionSet == "undefined") ? "" : testCategory.insructionSet
     this.test.negativeMarkingPercentage = (typeof testCategory.negativeMarkingPercentage == "undefined") ? "" : testCategory.negativeMarkingPercentage
     this.test.subjects = (typeof testCategory.subjects == "undefined") ? new Array<SubjectInTestCategory>() : testCategory.subjects
+
+    this.formGroup.get('duration').setValue(this.test.duration)
+    this.formGroup.get('totalMarks').setValue(this.test.maxMarks)
+    this.formGroup.get('negativeMarking').setValue(this.test.negativeMarkingPercentage)
+    this.formGroup.get('difficultyLevel').setValue(this.test.difficultyLevel)
+    this.formGroup.get('instructionSet').setValue(this.test.instructionSet)
   }
 
   onCreateTest() {
 
-    //this.addTestService.addTest(this.addTestFormGroup.value, this.test)
+    console.log(this.formGroup)
+
+    this.test.name = this.formGroup.get('testName').value
+    this.test.duration = this.formGroup.get('duration').value
+    this.test.maxMarks = this.formGroup.get('totalMarks').value
+    this.test.negativeMarkingPercentage = this.formGroup.get('negativeMarking').value
+    this.test.difficultyLevel = this.formGroup.get('difficultyLevel').value
+    this.test.instructionSet = this.formGroup.get('instructionSet').value
+
+    this.addTestService.addTest(this.formGroup.value, this.test)
   }
 }

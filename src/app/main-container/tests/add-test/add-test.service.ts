@@ -17,7 +17,31 @@ export class AddTestService {
             test: Test) {
 
         console.log("test")
-        console.log(test)
+        //console.log(test)
+        //"instructionSetID": test.instructionSet,
+
+        var subjectsArray = []
+
+        for (let subject of test.subjects) {
+            
+            let questionsArray = subject.questions.map(question => question._id)
+            let subjectsJson = {"subject" : subject.subject._id, 
+                                "maxMarks": subject.maxMarks,
+                                "maxNoOfQuestions" : subject.maxNoOfQuestions,
+                                "questions": questionsArray}
+            subjectsArray.push(subjectsJson)
+        }
+
+        let postJson = {"name" : test.name, 
+                        "examination": test.examination, 
+                        "testCategory": test.testCategory, 
+                        "duration": test.duration,
+                        "maxMarks": test.maxMarks,
+                        "negativeMarkingPercentage": test.negativeMarkingPercentage,
+                        "difficultyLevel": test.difficultyLevel,
+                        "subjects": subjectsArray}
+        
+        console.log(postJson)
 
         // this.http.post(this.addTestURL, testDetails).subscribe(
             
