@@ -21,7 +21,7 @@ export class AddTestComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private testService: TestService,
               private addTestService: AddTestService,
-              private modalService: NgbModal,) { }
+              private modalService: NgbModal) { }
 
   ngOnInit() {
 
@@ -72,10 +72,9 @@ export class AddTestComponent implements OnInit {
   openQuestionPaperInModal() {
 
     this.setValuesToTestModel()
-    console.log(this.test.subjects[0].questions[0].description)
+  
     const modalRef = this.modalService.open(PreviewQuestionPaperComponent, { size: 'lg' });
     modalRef.componentInstance.test = this.test
     //modalRef.componentInstance.modalRef = modalRef
-    //modalRef.componentInstance.formGroup = this.formGroup
   }
 }

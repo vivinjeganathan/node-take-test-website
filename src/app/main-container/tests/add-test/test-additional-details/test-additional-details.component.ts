@@ -25,7 +25,7 @@ export class TestAdditionalDetailsComponent implements OnInit {
     this.test.maxMarks = typeof this.test.maxMarks == "undefined" ? "" : this.test.maxMarks
     this.test.negativeMarkingPercentage = typeof this.test.negativeMarkingPercentage == "undefined" ? "" : this.test.negativeMarkingPercentage
     this.test.difficultyLevel = typeof this.test.difficultyLevel == "undefined" ? "Select" : this.test.difficultyLevel
-    this.test.instructionSet = typeof this.test.instructionSet == "undefined" ? "Select" : this.test.instructionSet
+    //this.test.instructionSet = typeof this.test.instructionSet == "undefined" ? "Select" : this.test.instructionSet
   }
 
 }

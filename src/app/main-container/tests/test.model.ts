@@ -20,6 +20,7 @@ export class TestCategory {
 }
 
 export class Test {
+    public _id: string;
     public name: string
     public examination: string
     public testCategory: string

@@ -47,6 +47,7 @@ import { TestQuestionListModalComponent } from './main-container/tests/add-test/
 import { TestQuestionSummaryModalComponent } from './main-container/tests/add-test/test-question-summary-modal/test-question-summary-modal.component'
 import { AddTestService } from './main-container/tests/add-test/add-test.service';
 import { PreviewQuestionPaperComponent } from './main-container/tests/preview-question-paper/preview-question-paper.component';
+import { SearchTestService } from './main-container/tests/search-test/search-test.service';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { PreviewQuestionPaperComponent } from './main-container/tests/preview-qu
               BasicDetailsService, 
               MainDetailsService, 
               TestService,
-              AddTestService],
+              AddTestService,
+              SearchTestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
