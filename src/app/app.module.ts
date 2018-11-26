@@ -46,6 +46,7 @@ import { TestGroupComponent } from './main-container/tests/search-test/test-grou
 import { TestQuestionListModalComponent } from './main-container/tests/add-test/test-question-list-modal/test-question-list-modal.component';
 import { TestQuestionSummaryModalComponent } from './main-container/tests/add-test/test-question-summary-modal/test-question-summary-modal.component'
 import { AddTestService } from './main-container/tests/add-test/add-test.service';
+import { PreviewQuestionPaperComponent } from './main-container/tests/preview-question-paper/preview-question-paper.component';
 
 @NgModule({
   declarations: [
@@ -82,9 +83,10 @@ import { AddTestService } from './main-container/tests/add-test/add-test.service
     TestDetailsComponent,
     TestGroupComponent,
     TestQuestionListModalComponent,
-    TestQuestionSummaryModalComponent
+    TestQuestionSummaryModalComponent,
+    PreviewQuestionPaperComponent
   ],
-  entryComponents: [TestQuestionListModalComponent],
+  entryComponents: [TestQuestionListModalComponent, PreviewQuestionPaperComponent],
   imports: [
     NgbModule,
     BrowserModule,

@@ -15,7 +15,7 @@ export class TestCategory {
     public maxMarks: string
     public negativeMarkingPercentage: string
     public duration: string
-    public insructionSet: string
+    public insructionSet: InstructionSet
     public tests:[Test]
 }
 
@@ -26,7 +26,7 @@ export class Test {
     public difficultyLevel: string
     public negativeMarkingPercentage: string
     public duration: string
-    public instructionSet: string
+    public instructionSet: InstructionSet
     public maxMarks: string
     public subjects: Array<SubjectInTestCategory>
 }
@@ -36,4 +36,9 @@ export class SubjectInTestCategory {
     public maxNoOfQuestions: string
     public maxMarks: string
     public questions: Question[]
+}
+
+export class InstructionSet {
+    public name: string
+    public instructions: string[]
 }
