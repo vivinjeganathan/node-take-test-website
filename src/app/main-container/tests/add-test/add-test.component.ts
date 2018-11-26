@@ -75,6 +75,6 @@ export class AddTestComponent implements OnInit {
   
     const modalRef = this.modalService.open(PreviewQuestionPaperComponent, { size: 'lg' });
     modalRef.componentInstance.test = this.test
-    //modalRef.componentInstance.modalRef = modalRef
+    modalRef.componentInstance.modalRef = modalRef
   }
 }

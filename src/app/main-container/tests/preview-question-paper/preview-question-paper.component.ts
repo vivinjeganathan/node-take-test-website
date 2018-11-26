@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Test, InstructionSet } from '../test.model';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-preview-question-paper',
@@ -9,6 +10,7 @@ import { Test, InstructionSet } from '../test.model';
 export class PreviewQuestionPaperComponent implements OnInit {
 
   @Input() test: Test
+  @Input() modalRef: NgbModalRef;
   
   constructor() { }
   
@@ -21,6 +23,10 @@ export class PreviewQuestionPaperComponent implements OnInit {
 
     this.test.instructionSet = instructionSet
 
+  }
+
+  onClose() {
+    this.modalRef.close('close click')
   }
 
 }
