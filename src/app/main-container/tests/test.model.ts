@@ -2,11 +2,13 @@ import { Subject } from "../question/subject.model";
 import { Question } from "../question/question.model";
 
 export class Examination {
+    public _id: string;
     public name: string;
     public testCategory: [TestCategory];
 }
 
 export class TestCategory {
+    public _id: string;
     public name: string
     public subjects: [SubjectInTestCategory]
     public maxNoOfQuestions: string

@@ -2,15 +2,12 @@
   <table class="table table-bordered table-sm">
 
     <tbody>
-      <!-- <tr *ngFor="let question of questions; let i = index"> -->
-          <!-- <app-question-summary
+      <tr *ngFor="let test of tests; let i = index">
+          <app-test-details
             [number]="i"
-            [question]="question"
-            (questionDeleted)="onDeleteQuestion($event)"> 
-          </app-question-summary> -->
-          <tr><app-test-details></app-test-details></tr>
-          <tr><app-test-details></app-test-details></tr>
-      <!-- </tr> -->
+            [test]="test"> 
+          </app-test-details>
+      </tr>
     </tbody>
   </table>
   </div>

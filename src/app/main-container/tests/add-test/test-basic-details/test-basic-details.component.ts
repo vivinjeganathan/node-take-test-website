@@ -38,14 +38,14 @@ export class TestBasicDetailsComponent implements OnInit {
     examSelectFormControl.valueChanges.subscribe((value) => {
       this.testCategories = this.testService.getTestCategories(value)
       testCategorySelectFormControl.setValue(this.testCategories[0].name)
-      this.test.examination = value
+      this.test.examination = this.examinations.filter(exam => (exam.name == value))[0]._id
     });
 
     testCategorySelectFormControl.valueChanges.subscribe((value) => {
       
       let testCategory = (this.testCategories).filter((testCategory) => (testCategory.name == value) )[0]
+      this.test.testCategory = testCategory._id
       this.testCategoryChanged.emit(testCategory);
-      this.test.testCategory = testCategory.name
     })
   }
 
