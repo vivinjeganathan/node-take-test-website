@@ -48,6 +48,9 @@ import { TestQuestionSummaryModalComponent } from './main-container/tests/add-te
 import { AddTestService } from './main-container/tests/add-test/add-test.service';
 import { PreviewQuestionPaperComponent } from './main-container/tests/preview-question-paper/preview-question-paper.component';
 import { SearchTestService } from './main-container/tests/search-test/search-test.service';
+import { ProductsComponent } from './main-container/products/products.component';
+import { SearchProductComponent } from './main-container/products/search-product/search-product.component';
+import { AddProductComponent } from './main-container/products/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,10 @@ import { SearchTestService } from './main-container/tests/search-test/search-tes
     TestGroupComponent,
     TestQuestionListModalComponent,
     TestQuestionSummaryModalComponent,
-    PreviewQuestionPaperComponent
+    PreviewQuestionPaperComponent,
+    ProductsComponent,
+    SearchProductComponent,
+    AddProductComponent
   ],
   entryComponents: [TestQuestionListModalComponent, PreviewQuestionPaperComponent],
   imports: [

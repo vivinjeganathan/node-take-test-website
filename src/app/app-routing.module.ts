@@ -11,6 +11,9 @@ import { ReportsComponent } from "./main-container/reports/reports.component";
 import { ManageAccountComponent } from "./main-container/manage-account/manage-account.component";
 import { SearchTestComponent } from "./main-container/tests/search-test/search-test.component";
 import { AddTestComponent } from "./main-container/tests/add-test/add-test.component";
+import { ProductsComponent } from "./main-container/products/products.component";
+import { SearchProductComponent } from "./main-container/products/search-product/search-product.component";
+import { AddProductComponent } from "./main-container/products/add-product/add-product.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo:'/dashboard', pathMatch: 'full'},
@@ -23,6 +26,10 @@ const appRoutes: Routes = [
     { path: 'tests', component: TestsComponent, children: [
         { path: 'searchTest', component: SearchTestComponent},
         { path: 'addTest', component: AddTestComponent}
+    ]},
+    { path: 'products', component: ProductsComponent, children: [
+        { path: 'searchProducts', component: SearchProductComponent},
+        { path: 'addProduct', component: AddProductComponent}
     ]},
     { path: 'students', component: StudentsComponent},
     { path: 'reports', component: ReportsComponent},
