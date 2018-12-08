@@ -1,0 +1,113 @@
+<br>
+<div class="container">
+<h2>Registration</h2>
+<br><br>
+
+<h5>Personal Details</h5>
+
+<form [formGroup]="registerForm">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="firstName">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control"/>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="gender">Gender</label>
+            <select class="form-control" formControlName="gender">
+                <option>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="username">Email</label>
+            <input type="text" formControlName="username" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="text" formControlName="mobileNumber" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="dob">Date of Birth</label>
+            <input type="text" formControlName="dob" class="form-control" />
+        </div>
+
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control"/>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control"/>
+        </div>
+    </div>
+    <hr>
+    <h5>Address Details</h5>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="addressLine1">Address Line 1</label>
+            <input type="text" formControlName="addressLine1" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="addressLine2">Address Line 1</label>
+            <input type="password" formControlName="addressLine2" class="form-control"/>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <input type="text" formControlName="city" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <input type="text" formControlName="state" class="form-control"/>
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="zipCode">Zip Code</label>
+            <input type="text" formControlName="zipCode" class="form-control"/>
+        </div>
+
+        <div class="form-group col-md-2">
+                <label for="country">Country</label>
+                <input type="text" formControlName="country" class="form-control"/>
+        </div>
+    </div>
+
+    <br><hr>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Interested in coaching for</label>
+            <select class="form-control" formControlName="interestedExams">
+                <option>AIEEE</option>
+                <option>BITSAT</option>
+                <option>IIT JEE</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Register</button>
+    </div>
+</form>
+</div>

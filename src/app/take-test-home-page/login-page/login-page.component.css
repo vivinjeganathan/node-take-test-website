@@ -1,0 +1,53 @@
+.switch-container{
+	padding: 5px;
+	border: 1px solid black;
+	width: 48%;
+}
+
+.segmented-control {
+	padding: 10px;
+	margin: 10px;
+}
+
+input[type="radio"]:checked + label { 
+    background-color: #027AFB;
+		color: white;
+}
+
+.segmented-control label {
+	border-top: 1px solid #027AFB;
+	border-bottom: 1px solid #027AFB;
+	padding: 10px 30px;
+	margin: -4px;
+	margin-left: -14px;
+	color: #027AFB;
+}
+
+.sc-label:first-of-type {
+	border-left: 1px solid #027AFB;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-right: 1px solid #027AFB;
+}
+
+.sc-label:last-of-type {
+	border-right: 1px solid #027AFB;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-left: 1px solid #027AFB;
+}
+
+input[type="radio"]{
+     visibility:hidden; 
+}
+
+.orange {
+	  text-decoration: underline;
+    -webkit-text-decoration-color: orange; /* Code for Firefox */
+    text-decoration-color: orange;
+}
+
+#inner {
+    display: table;
+    margin: 0 auto;
+  }

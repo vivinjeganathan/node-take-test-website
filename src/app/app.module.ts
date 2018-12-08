@@ -51,6 +51,11 @@ import { SearchTestService } from './main-container/tests/search-test/search-tes
 import { ProductsComponent } from './main-container/products/products.component';
 import { SearchProductComponent } from './main-container/products/search-product/search-product.component';
 import { AddProductComponent } from './main-container/products/add-product/add-product.component';
+import { StudentPanelComponent } from './student-panel/student-panel.component';
+import { StudentSignupComponent } from './student-panel/student-signup/student-signup.component';
+import { TakeTestHomePageComponent } from './take-test-home-page/take-test-home-page.component';
+import { LoginPageComponent } from './take-test-home-page/login-page/login-page.component';
+import { AdminSignupComponent } from './take-test-home-page/admin-signup/admin-signup.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +96,12 @@ import { AddProductComponent } from './main-container/products/add-product/add-p
     PreviewQuestionPaperComponent,
     ProductsComponent,
     SearchProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    StudentPanelComponent,
+    StudentSignupComponent,
+    TakeTestHomePageComponent,
+    LoginPageComponent,
+    AdminSignupComponent
   ],
   entryComponents: [TestQuestionListModalComponent, PreviewQuestionPaperComponent],
   imports: [

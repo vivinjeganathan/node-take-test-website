@@ -1,0 +1,51 @@
+<br><br><br>
+<form [formGroup]="loginForm">
+<div class="card w-50 offset-md-3">
+    <div class="card-header">
+            <h2>Login</h2>
+    </div>
+
+    <div class="card-body">
+        
+        <div class="card-title offset-md-3" id="inner">
+
+            <div class="segmented-control">
+                <input type="radio" name="switch" id="adminSwitch" ng-model="switchVal" value="admin" checked="checked" (change)="onSelectionChange($event)">
+                <label for="adminSwitch" class="sc-label">Admin </label>
+                <input type="radio" name="switch" id="studentSwitch" ng-model="switchVal" value="student" (change)="onSelectionChange($event)">
+                <label for="studentSwitch" class="sc-label">Student</label>
+            </div>
+
+        </div>
+
+        <br>
+        
+        <div class="card-text col-md-6">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" />
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <div class="card-footer">
+        <div class="form-group">
+            <button type="button"
+                    class="btn btn-primary btn-lg" 
+                    (click)="onLogin()">Login</button> &nbsp;  &nbsp;
+
+            <button class="btn btn-primary btn-lg" 
+                    type="button"
+                    *ngIf="switchVal === 'student'" 
+                    routerLink="/studentSignup">Sign up</button>
+        </div>
+    </div>
+</div>
+</form>
+<router-outlet></router-outlet>
