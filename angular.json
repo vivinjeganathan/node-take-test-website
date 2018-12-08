@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "intro2angular": {
+    "take-test-website": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/intro2angular",
+            "outputPath": "dist/take-test-website",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "intro2angular:build"
+            "browserTarget": "take-test-website:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "intro2angular:build:production"
+              "browserTarget": "take-test-website:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "intro2angular:build"
+            "browserTarget": "take-test-website:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
         }
       }
     },
-    "intro2angular-e2e": {
+    "take-test-website-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -112,14 +112,14 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "intro2angular:serve"
+            "devServerTarget": "take-test-website:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "intro2angular:serve:production"
+              "devServerTarget": "take-test-website:serve:production"
             },
             "mock": {
-              "devServerTarget": "intro2angular:serve:mock"
+              "devServerTarget": "take-test-website:serve:mock"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "intro2angular"
+  "defaultProject": "take-test-website"
 }
