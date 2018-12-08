@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Examination, TestCategory } from '../../tests/test.model';
 
 @Component({
   selector: 'app-add-product',
@@ -12,6 +13,10 @@ export class AddProductComponent implements OnInit {
   date: {year: number, month: number};
   
   public formGroup: FormGroup;
+
+  examinations: Examination[]
+  testCategories: TestCategory[]
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
