@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SubjectInTestCategory } from '../../test.model';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { Question } from 'src/app/main-container/question/question.model';
-import { SearchQuestionService } from 'src/app/main-container/question/search-question/search-question.service';
 import { TestQuestionListModalComponent } from '../test-question-list-modal/test-question-list-modal.component';
 import { FormGroup, FormControl } from '@angular/forms';
 

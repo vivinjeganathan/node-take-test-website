@@ -4,9 +4,9 @@ import { Observable } from "rxjs";
 import { map} from 'rxjs/operators';
 
 import {environment} from '../../../../environments/environment';
-import { QuestionType } from "./question-type.model";
 import { CustomSelector } from "./add-question/basic-details/custom-selector/custom-selector.model";
 import { Subject } from "./subject.model";
+import { QuestionType } from "./question.model";
 
 
 @Injectable()

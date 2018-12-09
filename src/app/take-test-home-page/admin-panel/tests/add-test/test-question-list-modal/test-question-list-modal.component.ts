@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Question } from 'src/app/main-container/question/question.model';
-import { SearchQuestionService } from 'src/app/main-container/question/search-question/search-question.service';
 import { SubjectInTestCategory } from '../../test.model';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormArray } from '@angular/forms';
+import { Question } from '../../../question/question.model';
+import { SearchQuestionService } from '../../../question/search-question/search-question.service';
 
 @Component({
   selector: 'app-test-question-list-modal',
