@@ -41,7 +41,10 @@ const appRoutes: Routes = [
             { path: 'searchProducts', component: SearchProductComponent},
             { path: 'addProduct', component: AddProductComponent}
         ]},
-        { path: 'students', component: StudentsComponent},
+        { path: 'students', component: StudentsComponent, children: [
+            { path: 'searchStudent', component: SearchProductComponent},
+            { path: 'addStudent', component: AddProductComponent}
+        ]},
         { path: 'reports', component: ReportsComponent},
         { path: 'manageAccount', component: ManageAccountComponent}
     ]},
