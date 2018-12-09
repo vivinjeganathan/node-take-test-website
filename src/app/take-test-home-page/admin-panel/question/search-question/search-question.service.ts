@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 
 import { QuestionService } from "../question.service";
 import { Question } from "../question.model";
-import {environment} from '../../../../environments/environment';
+import {environment} from '../../../../../environments/environment';
 import * as _ from 'lodash';
 import { Params } from "@angular/router";
 

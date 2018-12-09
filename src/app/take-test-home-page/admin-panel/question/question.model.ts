@@ -18,3 +18,8 @@ export class Question {
 export class Option {
     public value: string
 }
+
+export class QuestionType {
+    public _id: string
+    public name: string;
+}

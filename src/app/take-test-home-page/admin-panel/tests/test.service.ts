@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 
 import { Test, Examination, TestCategory } from "./test.model";
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import { Params } from "@angular/router";
 
 @Injectable()
