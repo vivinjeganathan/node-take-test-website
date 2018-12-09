@@ -55,6 +55,10 @@ import { TakeTestHomePageComponent } from './take-test-home-page/take-test-home-
 import { LoginPageComponent } from './take-test-home-page/login-page/login-page.component';
 import { AdminSignupComponent } from './take-test-home-page/admin-signup/admin-signup.component';
 import { AdminPanelComponent } from './take-test-home-page/admin-panel/admin-panel.component';
+import { AddStudentComponent } from './take-test-home-page/admin-panel/students/add-student/add-student.component';
+import { SearchStudentComponent } from './take-test-home-page/admin-panel/students/search-student/search-student.component';
+import { StudentUserSummaryComponent } from './take-test-home-page/admin-panel/students/search-student/student-user-summary/student-user-summary.component';
+import { StudentService } from './take-test-home-page/admin-panel/students/student.service';
 
 @NgModule({
   declarations: [
@@ -99,7 +103,10 @@ import { AdminPanelComponent } from './take-test-home-page/admin-panel/admin-pan
     StudentSignupComponent,
     TakeTestHomePageComponent,
     LoginPageComponent,
-    AdminSignupComponent
+    AdminSignupComponent,
+    AddStudentComponent,
+    SearchStudentComponent,
+    StudentUserSummaryComponent
   ],
   entryComponents: [TestQuestionListModalComponent, PreviewQuestionPaperComponent],
   imports: [
@@ -117,7 +124,8 @@ import { AdminPanelComponent } from './take-test-home-page/admin-panel/admin-pan
               MainDetailsService, 
               TestService,
               AddTestService,
-              SearchTestService],
+              SearchTestService,
+              StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,6 +18,8 @@ import { StudentSignupComponent } from "./take-test-home-page/student-signup/stu
 import { TakeTestHomePageComponent } from "./take-test-home-page/take-test-home-page.component";
 import { StudentPanelComponent } from "./take-test-home-page/student-panel/student-panel.component";
 import { AdminPanelComponent } from "./take-test-home-page/admin-panel/admin-panel.component";
+import { SearchStudentComponent } from "./take-test-home-page/admin-panel/students/search-student/search-student.component";
+import { AddStudentComponent } from "./take-test-home-page/admin-panel/students/add-student/add-student.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -42,8 +44,8 @@ const appRoutes: Routes = [
             { path: 'addProduct', component: AddProductComponent}
         ]},
         { path: 'students', component: StudentsComponent, children: [
-            { path: 'searchStudent', component: SearchProductComponent},
-            { path: 'addStudent', component: AddProductComponent}
+            { path: 'searchStudent', component: SearchStudentComponent},
+            { path: 'addStudent', component: AddStudentComponent}
         ]},
         { path: 'reports', component: ReportsComponent},
         { path: 'manageAccount', component: ManageAccountComponent}

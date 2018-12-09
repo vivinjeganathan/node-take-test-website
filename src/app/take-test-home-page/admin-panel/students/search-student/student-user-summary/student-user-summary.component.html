@@ -1,0 +1,11 @@
+<td width="10%">{{number+1}}</td>
+<td width="80%">{{studentUser.firstName + studentUser.lastName}}
+      <div *ngFor="let exam of studentUser.preferredExams">
+            {{ exam.name }}
+      </div> 
+
+      <button 
+      class="btn btn-primary"
+      (click)="OnDeleteStudentUser()">Delete</button> 
+</td>
+      
