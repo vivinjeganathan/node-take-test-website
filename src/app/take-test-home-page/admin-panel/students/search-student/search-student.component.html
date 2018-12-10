@@ -11,7 +11,7 @@
           <app-student-user-summary
             [number]="i"
             [studentUser]="studentUser"
-            (OnDeleteStudentUser)="OnDeleteStudentUser($event)"> 
+            (studentUserDeleted)="OnDeleteStudentUser($event)"> 
           </app-student-user-summary>
       </tr>
     </tbody>

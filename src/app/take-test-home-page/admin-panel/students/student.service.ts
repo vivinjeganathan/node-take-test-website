@@ -14,6 +14,8 @@ export class StudentService {
     constructor(private http: HttpClient) { }
 
     studentUsersChanged = new EventEmitter<StudentUser[]>()
+    inviteSent = new EventEmitter<StudentUser>()
+    studentAdded = new EventEmitter<StudentUser>()
 
     getStudentUsers(id: string) {
 
@@ -37,26 +39,31 @@ export class StudentService {
         return this.studentUsers
     }
     
-    addStudentUser(formGroup: FormGroup) {
+    addStudentUser(formGroup: FormGroup, status: string) {
 
-        this.http.post(this.studentUserURL, formGroup.value).subscribe(
+        var json = JSON.parse(JSON.stringify(formGroup.value))
+        json['status'] = status
+
+        this.http.post(this.studentUserURL, json).subscribe(
             
             (response) => {
-                console.log(response)
+                this.studentAdded.emit(response as StudentUser)
             } ,
             (error) => console.log(error)
         )
     }
 
-    updateStudentUser(formGroup: FormGroup, id: string) {
+    updateStudentUser(formGroup: FormGroup, id: string, status: string) {
 
         var json = JSON.parse(JSON.stringify(formGroup.value))
         json['studentId'] = id
+        json['status'] = status
         console.log(json)
         this.http.patch(this.studentUserURL, json).subscribe(
             
             (response) => {
-                console.log(response)
+                //console.log()
+                
             } ,
             (error) => console.log(error)
         )
@@ -64,16 +71,17 @@ export class StudentService {
 
     sendInviteToStudentUser(formGroup: FormGroup, link: string) {
 
-        
         let subjectsJson = {"username" :formGroup.get('username').value, 
                             "mobileNumber": formGroup.get('mobileNumber').value,
-                            "websiteLink": link}
+                            "websiteLink": link, 
+                            "status": "Invitation Sent"}
 
         var sendInviteUrl = this.studentUserURL + "/" + 'sendInvite'
         this.http.post(sendInviteUrl, subjectsJson).subscribe(
             
             (response) => {
                 console.log(response)
+                this.inviteSent.emit(response as StudentUser)
             } ,
             (error) => console.log(error)
         )

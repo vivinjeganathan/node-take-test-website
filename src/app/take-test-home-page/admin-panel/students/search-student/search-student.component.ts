@@ -15,13 +15,13 @@ export class SearchStudentComponent implements OnInit {
 
   ngOnInit() {
 
-    this.studentService.studentUsersChanged.subscribe((studentUser: StudentUser) => {
+    this.studentService.studentUsersChanged.subscribe((studentUsers: [StudentUser]) => {
       
       this.studentUsers = this.studentService.studentUsers
     });
     this.studentUsers = this.studentService.getStudentUsers(null)
   }
-
+  
   OnDeleteStudentUser(studentUser: StudentUser) {
     this.studentService.OnDeleteStudentUser(studentUser)
   }

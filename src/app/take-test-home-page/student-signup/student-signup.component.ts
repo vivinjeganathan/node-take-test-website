@@ -72,9 +72,9 @@ export class StudentSignupComponent implements OnInit {
   OnRegisterClick() {
 
     if(this.updateStudentId) {
-      this.studentService.updateStudentUser(this.registerForm, this.updateStudentId)
+      this.studentService.updateStudentUser(this.registerForm, this.updateStudentId, "Registered")
     } else {
-       this.studentService.addStudentUser(this.registerForm)
+       this.studentService.addStudentUser(this.registerForm, "Self Registered")
        //this.isCollapsed = false
     }
   }

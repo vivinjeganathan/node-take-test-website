@@ -11,6 +11,7 @@ export class StudentUser {
     public username: string
     public password: string
     public preferredExams: [Examination]
+    public status: string
 }
 
 export class Address {

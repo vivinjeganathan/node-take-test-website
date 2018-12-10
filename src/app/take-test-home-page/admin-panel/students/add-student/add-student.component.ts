@@ -4,6 +4,7 @@ import { StudentService } from '../student.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { InjectionToken, FactoryProvider } from '@angular/core';
+import { StudentUser } from '../student.model';
 
 export const WINDOW = new InjectionToken<Window>('window');
 
@@ -26,6 +27,10 @@ export const WINDOW_PROVIDERS = [
 export class AddStudentComponent implements OnInit {
 
   registerForm: FormGroup
+  isInviteSent = false
+  sendInviteButtonTitle = 'Send Invite'
+  updateDetailsButtonTitle = 'Add a student'
+  studentUser: StudentUser
 
   constructor(private formBuilder: FormBuilder, 
               private studentService: StudentService,
@@ -54,8 +59,31 @@ export class AddStudentComponent implements OnInit {
   }
 
   onSendInvite() {
+    
     let link = this.getHostname() + '/studentSignup'
     this.studentService.sendInviteToStudentUser(this.registerForm, link);
+
+    this.studentService.inviteSent.subscribe((student: StudentUser) => {
+       
+      this.studentUser = student
+      this.isInviteSent = true
+      this.sendInviteButtonTitle = 'Resend Invite'
+      this.updateDetailsButtonTitle = 'Update Details'
+
+    });
+  }
+
+  onUpdateDetails(){
+    if(this.isInviteSent) {
+      this.studentService.updateStudentUser(this.registerForm, this.studentUser._id, "Invitation Sent")
+    } else {
+      this.studentService.addStudentUser(this.registerForm, "Invitation Pending")
+
+      this.studentService.studentAdded.subscribe((student: StudentUser) => {
+       
+        this.studentUser = student
+      });
+    }
   }
 
   getHostname() : string {
