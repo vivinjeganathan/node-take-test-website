@@ -15,11 +15,17 @@ export class StudentService {
 
     studentUsersChanged = new EventEmitter<StudentUser[]>()
 
-    getAllStudentUsers() {
+    getStudentUsers(id: string) {
 
         this.studentUsers.length = 0
 
-        this.http.get(this.studentUserURL).subscribe(
+        let queryParams = new HttpParams();
+
+        if (id != undefined) {
+            queryParams = queryParams.append('_id', id);
+        }
+
+        this.http.get(this.studentUserURL , { params: queryParams } ).subscribe(
             (response) => {
                 
                 this.studentUsers = response as [StudentUser]
@@ -42,10 +48,26 @@ export class StudentService {
         )
     }
 
-    sendInviteToStudentUser(formGroup: FormGroup) {
+    updateStudentUser(formGroup: FormGroup, id: string) {
 
-        let subjectsJson = {"toEmail" :formGroup.get('username').value, 
-                            "mobileNumber": formGroup.get('mobileNumber').value}
+        var json = JSON.parse(JSON.stringify(formGroup.value))
+        json['studentId'] = id
+        console.log(json)
+        this.http.patch(this.studentUserURL, json).subscribe(
+            
+            (response) => {
+                console.log(response)
+            } ,
+            (error) => console.log(error)
+        )
+    }
+
+    sendInviteToStudentUser(formGroup: FormGroup, link: string) {
+
+        
+        let subjectsJson = {"username" :formGroup.get('username').value, 
+                            "mobileNumber": formGroup.get('mobileNumber').value,
+                            "websiteLink": link}
 
         var sendInviteUrl = this.studentUserURL + "/" + 'sendInvite'
         this.http.post(sendInviteUrl, subjectsJson).subscribe(

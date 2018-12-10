@@ -25,6 +25,7 @@ const appRoutes: Routes = [
     { path: '', redirectTo:'/home', pathMatch: 'full'},
     { path: 'home', component: TakeTestHomePageComponent},
     { path: 'studentSignup', component: StudentSignupComponent},
+    { path: 'studentSignup/:id', component: StudentSignupComponent},
     { path: 'student', component: StudentPanelComponent, children: [
         //{ path: 'dashboard', component: SearchQuestionComponent},
     ]},

@@ -19,7 +19,7 @@ export class SearchStudentComponent implements OnInit {
       
       this.studentUsers = this.studentService.studentUsers
     });
-    this.studentUsers = this.studentService.getAllStudentUsers()
+    this.studentUsers = this.studentService.getStudentUsers(null)
   }
 
   OnDeleteStudentUser(studentUser: StudentUser) {

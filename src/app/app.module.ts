@@ -55,7 +55,7 @@ import { TakeTestHomePageComponent } from './take-test-home-page/take-test-home-
 import { LoginPageComponent } from './take-test-home-page/login-page/login-page.component';
 import { AdminSignupComponent } from './take-test-home-page/admin-signup/admin-signup.component';
 import { AdminPanelComponent } from './take-test-home-page/admin-panel/admin-panel.component';
-import { AddStudentComponent } from './take-test-home-page/admin-panel/students/add-student/add-student.component';
+import { AddStudentComponent, WINDOW_PROVIDERS } from './take-test-home-page/admin-panel/students/add-student/add-student.component';
 import { SearchStudentComponent } from './take-test-home-page/admin-panel/students/search-student/search-student.component';
 import { StudentUserSummaryComponent } from './take-test-home-page/admin-panel/students/search-student/student-user-summary/student-user-summary.component';
 import { StudentService } from './take-test-home-page/admin-panel/students/student.service';
@@ -117,7 +117,8 @@ import { StudentService } from './take-test-home-page/admin-panel/students/stude
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [QuestionService, 
+  providers: [WINDOW_PROVIDERS, 
+              QuestionService, 
               SearchQuestionService, 
               AddQuestionService, 
               BasicDetailsService, 
