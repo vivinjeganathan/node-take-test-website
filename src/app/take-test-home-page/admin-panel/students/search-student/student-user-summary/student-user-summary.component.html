@@ -1,5 +1,9 @@
 <td width="10%">{{number+1}}</td>
 <td width="80%">{{studentUser.firstName + studentUser.lastName}}
+      
+      {{studentUser.username}}
+      {{studentUser.mobileNumber}}
+
       <div *ngFor="let exam of studentUser.preferredExams">
             {{ exam.name }}
       </div> 

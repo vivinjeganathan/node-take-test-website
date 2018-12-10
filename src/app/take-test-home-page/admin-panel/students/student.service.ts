@@ -42,6 +42,21 @@ export class StudentService {
         )
     }
 
+    sendInviteToStudentUser(formGroup: FormGroup) {
+
+        let subjectsJson = {"toEmail" :formGroup.get('username').value, 
+                            "mobileNumber": formGroup.get('mobileNumber').value}
+
+        var sendInviteUrl = this.studentUserURL + "/" + 'sendInvite'
+        this.http.post(sendInviteUrl, subjectsJson).subscribe(
+            
+            (response) => {
+                console.log(response)
+            } ,
+            (error) => console.log(error)
+        )
+    }
+
     OnDeleteStudentUser(studentUser: StudentUser) {
         
         var deleteUrl = this.studentUserURL + "/" + studentUser._id
