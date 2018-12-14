@@ -34,8 +34,9 @@ export class AddTestService {
         }
 
         let postJson = {"name" : test.name, 
-                        "examinationId": test.examination, 
-                        "testCategoryId": test.testCategory, 
+                        "examinationGroup": test.examinationGroup._id, 
+                        "examination": test.examination._id, 
+                        "testCategory": test.testCategory._id, 
                         "duration": test.duration,
                         "maxMarks": test.maxMarks,
                         "negativeMarkingPercentage": test.negativeMarkingPercentage,

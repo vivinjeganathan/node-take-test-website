@@ -1,33 +1,68 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 
-import { Test, Examination, TestCategory } from "./test.model";
+import { ExaminationGroup, Examination, TestCategory } from "./test.model";
 import {environment} from '../../../../environments/environment';
-import { Params } from "@angular/router";
 
 @Injectable()
 export class TestService {
 
+    examinationGroups: ExaminationGroup[] = []
     examinations: Examination[] = []
-    examinationURL: string = environment.serverUrl + '/examination'
+    testCategories: TestCategory[] = []
+    
+    examinationGroupURL = environment.serverUrl + '/examinationGroup'
+    examinationURL = environment.serverUrl + '/examination'
+    testCategoryURL = environment.serverUrl + '/testCategory'
+
+    examinationGroupsChanged = new EventEmitter<ExaminationGroup[]>()
+    examinationsChanged = new EventEmitter<ExaminationGroup[]>()
+    testCategoriesChanged = new EventEmitter<ExaminationGroup[]>()
 
     constructor(private http: HttpClient) { }
 
-    examinationsChanged = new EventEmitter<Examination[]>()
+    getExaminationGroups() {
 
-    getAllExaminations() {
+        this.examinationGroups.length = 0
+        this.examinationGroups.push(this.getDummyExaminationGroup())
+
+        this.http.get(this.examinationGroupURL).subscribe(
+            (response) => {
+                this.examinationGroups = this.examinationGroups.concat(response as [ExaminationGroup])
+                this.examinationGroupsChanged.emit(this.examinationGroups)
+            },
+            (error) => console.log(error)
+        )
+    
+        return this.examinationGroups
+    }
+
+    getDummyExaminationGroup(): ExaminationGroup {
+
+        var examinationGroup = new ExaminationGroup
+        examinationGroup.name = 'Select'
+
+        return examinationGroup;
+    }
+
+    getExaminations(examGroupId: string) {
 
         this.examinations.length = 0
         this.examinations.push(this.getDummyExamination())
 
-        this.http.get(this.examinationURL).subscribe(
-            (response) => {
-                
-                this.examinations = this.examinations.concat(response as [Examination])
-                this.examinationsChanged.emit(this.examinations)
-            },
-            (error) => console.log(error)
-        )
+        if(examGroupId) {
+
+            let queryParams = new HttpParams();
+            queryParams = queryParams.append('examinationGroup', examGroupId)
+
+            this.http.get(this.examinationURL, { params: queryParams }).subscribe(
+                (response) => {
+                    this.examinations = this.examinations.concat(response as [Examination])
+                    this.examinationsChanged.emit(this.examinations)
+                },
+                (error) => console.log(error)
+            )
+        }
     
         return this.examinations
     }
@@ -40,21 +75,27 @@ export class TestService {
         return examination;
     }
 
-    getTestCategories(examName: string) {
+    getTestCategories(examGroupId: string, examId: string) {
+        
+        this.testCategories.length = 0
+        this.testCategories.push(this.getDummyTestCategory())
 
-        var testCategories : TestCategory[] = []
-        testCategories.push(this.getDummyTestCategory())
+        if(examGroupId && examId) {
 
-        if (examName != 'Select' && examName.length > 0) {
-
-            var examination = (this.examinations).filter((exam) => 
-                (exam.name == examName)
-            )[0]
-
-            testCategories = testCategories.concat(examination.testCategory)
+            let queryParams = new HttpParams();
+            queryParams = queryParams.append('examinationGroup', examGroupId)
+            queryParams = queryParams.append('examination', examId)
+        
+            this.http.get(this.testCategoryURL, { params: queryParams } ).subscribe(
+                (response) => {
+                    this.testCategories = this.testCategories.concat(response as [TestCategory])
+                    this.testCategoriesChanged.emit(this.testCategories)
+                },
+                (error) => console.log(error)
+            )
         }
         
-        return testCategories
+        return this.testCategories
     }
 
     getDummyTestCategory(): TestCategory {

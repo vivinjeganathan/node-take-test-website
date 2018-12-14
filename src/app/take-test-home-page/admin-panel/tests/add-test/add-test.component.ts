@@ -25,11 +25,6 @@ export class AddTestComponent implements OnInit {
 
   ngOnInit() {
 
-    this.examinations = this.testService.getAllExaminations()
-    this.testService.examinationsChanged.subscribe((examinations: Examination) => {
-      this.examinations = this.testService.examinations
-    });
-
     this.formGroup = this.formBuilder.group({
       
       'subjects': this.formBuilder.array([])

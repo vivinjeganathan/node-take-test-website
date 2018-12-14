@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Examination, TestCategory, Test } from '../../test.model';
+import { Examination, TestCategory, Test, ExaminationGroup } from '../../test.model';
 import { TestService } from '../../test.service';
 
 @Component({
@@ -22,31 +22,22 @@ export class TestBasicDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    let examSelectFormControl = new FormControl('')
-    let testCategorySelectFormControl = new FormControl('')
-
-    this.formGroup.addControl('examSelectFormControl', examSelectFormControl)
     this.formGroup.addControl('testName', new FormControl(''))
-    this.formGroup.addControl('selectTestCategory', testCategorySelectFormControl)
-
-    //Set default values
-    examSelectFormControl.setValue(this.examinations[0].name)
-
-    this.testCategories = this.testService.getTestCategories(this.examinations[0].name)
-    testCategorySelectFormControl.setValue(this.testCategories[0].name)
-
-    examSelectFormControl.valueChanges.subscribe((value) => {
-      this.testCategories = this.testService.getTestCategories(value)
-      testCategorySelectFormControl.setValue(this.testCategories[0].name)
-      this.test.examination = this.examinations.filter(exam => (exam.name == value))[0]._id
-    });
-
-    testCategorySelectFormControl.valueChanges.subscribe((value) => {
-      
-      let testCategory = (this.testCategories).filter((testCategory) => (testCategory.name == value) )[0]
-      this.test.testCategory = testCategory._id
-      this.testCategoryChanged.emit(testCategory);
-    })
   }
+
+  OnSelectTestCategory(testCategory: TestCategory) {
+    this.test.testCategory = testCategory
+    this.testCategoryChanged.emit(testCategory);
+  }
+
+  OnSelectExaminationGroup(examinationGroup: ExaminationGroup) {
+    this.test.examinationGroup = examinationGroup
+  }
+
+  OnSelectExamination(examination: Examination) {
+    this.test.examination = examination
+  }
+
+  
 
 }

@@ -47,8 +47,6 @@ export class SearchQuestionComponent {
 
     const queryParams: Params = Object.assign({}, this.activatedRoute.snapshot.queryParams);
 
-    let subject = this.formGroup.get('subject').value as string
-
     this.resetAllQueryParams(queryParams)
 
     this.setQueryParam('subject', queryParams)

@@ -12,28 +12,12 @@
   
     </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-
-        <label for="selectExam">Select Exam</label>
-        <select class="form-control" formControlName="examSelectFormControl">
-            <option *ngFor="let exam of examinations" [value]="exam.name">{{exam.name}}
-            </option>
-        </select>
-
-      </div>
-      
-      <div class="form-group col-md-6">
-        
-        <label for="selectTestCategory">Select Test Category</label>
-        <select class="form-control" id="selectTestCategory" formControlName="selectTestCategory">
-            <option *ngFor="let testCategory of testCategories" [value]="testCategory.name">{{testCategory.name}}
-            </option>
-        </select>
-
-      </div>
-  
-    </div>
+    <app-test-group
+      [formGroup]="formGroup"
+      (examinationGroupValueChanged)="OnSelectExaminationGroup($event)"
+      (examinationValueChanged)="OnSelectExamination($event)"
+      (testCategoryValueChanged)="OnSelectTestCategory($event)">
+    </app-test-group>
   </div>
 
   

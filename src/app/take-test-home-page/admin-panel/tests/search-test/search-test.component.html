@@ -1,3 +1,23 @@
-<app-test-list
-    [examinations]="this.examinations">
-</app-test-list>
+<h5>Test Details</h5>
+<app-test-group
+    [formGroup]="formGroup"
+    (examinationGroupValueChanged)="OnSelectExaminationGroup($event)"
+    (examinationValueChanged)="OnSelectExamination($event)"
+    (testCategoryValueChanged)="OnSelectTestCategory($event)">
+</app-test-group>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-sm">
+  
+      <tbody>
+        <tr *ngFor="let test of tests; let i = index">
+            <app-test-summary
+              [number]="i"
+              [test]="test"
+              (testDeleted)="onDeleteTest($event)"> 
+            </app-test-summary>
+        </tr>
+      </tbody>
+    </table>
+</div>
+   

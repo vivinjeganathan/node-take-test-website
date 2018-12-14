@@ -31,15 +31,12 @@ import { MainDetailsService } from './take-test-home-page/admin-panel/question/a
 import { AddTestComponent } from './take-test-home-page/admin-panel/tests/add-test/add-test.component';
 import { SearchTestComponent } from './take-test-home-page/admin-panel/tests/search-test/search-test.component';
 import { TestSummaryComponent } from './take-test-home-page/admin-panel/tests/search-test/test-summary/test-summary.component';
-import { TestListComponent } from './take-test-home-page/admin-panel/tests/search-test/test-list/test-list.component';
-import { TestTypeSummaryComponent } from './take-test-home-page/admin-panel/tests/search-test/test-type-summary/test-type-summary.component';
 import { TestService } from './take-test-home-page/admin-panel/tests/test.service';
 import { TestBasicDetailsComponent } from './take-test-home-page/admin-panel/tests/add-test/test-basic-details/test-basic-details.component';
 import { TestAdditionalDetailsComponent } from './take-test-home-page/admin-panel/tests/add-test/test-additional-details/test-additional-details.component';
 import { TestSubjectSummaryComponent } from './take-test-home-page/admin-panel/tests/add-test/test-subject-summary/test-subject-summary.component';
 import { TestSubjectDetailsComponent } from './take-test-home-page/admin-panel/tests/add-test/test-subject-details/test-subject-details.component';
 import { TestSubjectAddComponent } from './take-test-home-page/admin-panel/tests/add-test/test-subject-add/test-subject-add.component';
-import { TestDetailsComponent } from './take-test-home-page/admin-panel/tests/search-test/test-details/test-details.component';
 import { TestGroupComponent } from './take-test-home-page/admin-panel/tests/search-test/test-group/test-group.component';
 import { TestQuestionListModalComponent } from './take-test-home-page/admin-panel/tests/add-test/test-question-list-modal/test-question-list-modal.component';
 import { TestQuestionSummaryModalComponent } from './take-test-home-page/admin-panel/tests/add-test/test-question-summary-modal/test-question-summary-modal.component'
@@ -84,14 +81,11 @@ import { StudentService } from './take-test-home-page/admin-panel/students/stude
     AddTestComponent,
     SearchTestComponent,
     TestSummaryComponent,
-    TestListComponent,
-    TestTypeSummaryComponent,
     TestBasicDetailsComponent,
     TestAdditionalDetailsComponent,
     TestSubjectSummaryComponent,
     TestSubjectDetailsComponent,
     TestSubjectAddComponent,
-    TestDetailsComponent,
     TestGroupComponent,
     TestQuestionListModalComponent,
     TestQuestionSummaryModalComponent,
