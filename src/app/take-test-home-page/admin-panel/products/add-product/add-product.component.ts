@@ -12,6 +12,7 @@ import { ProductTestsAddComponent } from './product-tests-add/product-tests-add.
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
+
 export class AddProductComponent implements OnInit {
   model: NgbDateStruct;
   date: {year: number, month: number};
@@ -77,6 +78,6 @@ export class AddProductComponent implements OnInit {
   }
 
   onAddProduct() {
-    
+
   }
 }

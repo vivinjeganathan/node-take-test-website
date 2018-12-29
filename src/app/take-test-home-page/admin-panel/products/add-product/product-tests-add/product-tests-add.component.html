@@ -1,3 +1,42 @@
-<p>
-  product-tests-add works!
-</p>
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Tests to product</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onClose()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  
+    <div class="modal-body">
+  
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm">
+          
+          <thead class="thead-light">
+            <tr class="d-flex">
+              <th>Test Details</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let test of tests; let i = index">
+                <app-product-test-summary-modal
+                  [number]="i"
+                  [test]="test"> 
+                </app-product-test-summary-modal>
+            </tr>
+          </tbody>
+          
+        </table>
+      </div>
+  
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" 
+              class="btn btn-secondary" 
+              data-dismiss="modal"
+              (click)="onClose()">Close</button>
+      <button type="button" 
+              class="btn btn-primary"
+              (click)="onSaveTests()">Save changes</button>
+    </div>

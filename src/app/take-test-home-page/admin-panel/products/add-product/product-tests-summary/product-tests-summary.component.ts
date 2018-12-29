@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductTestsAddComponent } from '../product-tests-add/product-tests-add.component';
+import { Test } from '../../../tests/test.model';
 
 @Component({
   selector: 'app-product-tests-summary',
@@ -8,6 +9,8 @@ import { ProductTestsAddComponent } from '../product-tests-add/product-tests-add
   styleUrls: ['./product-tests-summary.component.css']
 })
 export class ProductTestsSummaryComponent implements OnInit {
+
+  test: Test
 
   constructor(private modalService: NgbModal) { }
 

@@ -11,7 +11,6 @@ export class TestQuestionSummaryModalComponent implements OnInit {
 
   @Input() question: Question;  
   @Input() number: number;
-  @Output() questionDeleted = new EventEmitter<Question>();
 
   constructor() { }
 

@@ -37,6 +37,7 @@ export class Test {
     public testCategory: TestCategory
     public examination: Examination
     public examinationGroup: ExaminationGroup
+    public isSelected: Boolean
 }
 
 export class SubjectInTestCategory {

@@ -62,6 +62,7 @@ import { ProductPricingDetailsComponent } from './take-test-home-page/admin-pane
 import { ProductTestsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-add/product-tests-add.component';
 import { ProductService } from './take-test-home-page/admin-panel/products/product.service';
 import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-add/product-students-add.component';
+import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-add/product-test-summary-modal/product-test-summary-modal.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/p
     ProductStudentsSummaryComponent,
     ProductPricingDetailsComponent,
     ProductTestsAddComponent,
-    ProductStudentsAddComponent
+    ProductStudentsAddComponent,
+    ProductTestSummaryModalComponent
   ],
   entryComponents: [TestQuestionListModalComponent,
                     PreviewQuestionPaperComponent, 

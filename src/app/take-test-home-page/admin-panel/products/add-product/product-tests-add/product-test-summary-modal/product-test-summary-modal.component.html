@@ -1,0 +1,17 @@
+<td>
+    <div class="input-group mb-3">
+          
+          <div class="form-check">
+                <input type="checkbox" 
+                       class="form-check-input" 
+                       id="{{number}}" 
+                       [checked]='test.isSelected'
+                       (click)="selectedTest()">
+
+                <label class="form-check-label" for="{{number}}"> 
+                      {{ test.name }} 
+                </label>
+          </div>
+
+    </div>
+</td>
