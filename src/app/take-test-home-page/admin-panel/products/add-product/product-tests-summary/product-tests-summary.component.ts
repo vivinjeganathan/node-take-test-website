@@ -10,7 +10,7 @@ import { Test } from '../../../tests/test.model';
 })
 export class ProductTestsSummaryComponent implements OnInit {
 
-  test: Test
+  tests: Test[] = []
 
   constructor(private modalService: NgbModal) { }
 
@@ -21,7 +21,7 @@ export class ProductTestsSummaryComponent implements OnInit {
 
     const modalRef = this.modalService.open(ProductTestsAddComponent, { size: 'lg' });
     // modalRef.componentInstance.product = this.product
-    // modalRef.componentInstance.modalRef = modalRef
+    modalRef.componentInstance.modalRef = modalRef
     // modalRef.componentInstance.formGroup = this.formGroup
   }
 }

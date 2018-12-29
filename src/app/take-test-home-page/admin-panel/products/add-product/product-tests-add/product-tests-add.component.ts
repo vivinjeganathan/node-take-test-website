@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Test } from '../../../tests/test.model';
 import { SearchTestService } from '../../../tests/search-test/search-test.service';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-tests-add',
@@ -10,8 +11,10 @@ import { SearchTestService } from '../../../tests/search-test/search-test.servic
 export class ProductTestsAddComponent implements OnInit {
 
   tests: Test[]
+  @Input() modalRef: NgbModalRef;
   
-  constructor(private searchTestService: SearchTestService,) { }
+  constructor(private searchTestService: SearchTestService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
 
@@ -20,6 +23,14 @@ export class ProductTestsAddComponent implements OnInit {
     this.searchTestService.testsChanged.subscribe((tests: Test[]) => {
       this.tests = this.searchTestService.tests
     });
+  }
+
+  onClose() {
+    this.modalRef.close('close click')
+  }
+
+  onSaveTests() {
+    
   }
 
 }
