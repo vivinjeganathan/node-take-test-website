@@ -56,6 +56,12 @@ import { AddStudentComponent, WINDOW_PROVIDERS } from './take-test-home-page/adm
 import { SearchStudentComponent } from './take-test-home-page/admin-panel/students/search-student/search-student.component';
 import { StudentUserSummaryComponent } from './take-test-home-page/admin-panel/students/search-student/student-user-summary/student-user-summary.component';
 import { StudentService } from './take-test-home-page/admin-panel/students/student.service';
+import { ProductTestsSummaryComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-summary/product-tests-summary.component';
+import { ProductStudentsSummaryComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-summary/product-students-summary.component';
+import { ProductPricingDetailsComponent } from './take-test-home-page/admin-panel/products/add-product/product-pricing-details/product-pricing-details.component';
+import { ProductTestsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-add/product-tests-add.component';
+import { ProductService } from './take-test-home-page/admin-panel/products/product.service';
+import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-add/product-students-add.component';
 
 @NgModule({
   declarations: [
@@ -100,9 +106,17 @@ import { StudentService } from './take-test-home-page/admin-panel/students/stude
     AdminSignupComponent,
     AddStudentComponent,
     SearchStudentComponent,
-    StudentUserSummaryComponent
+    StudentUserSummaryComponent,
+    ProductTestsSummaryComponent,
+    ProductStudentsSummaryComponent,
+    ProductPricingDetailsComponent,
+    ProductTestsAddComponent,
+    ProductStudentsAddComponent
   ],
-  entryComponents: [TestQuestionListModalComponent, PreviewQuestionPaperComponent],
+  entryComponents: [TestQuestionListModalComponent,
+                    PreviewQuestionPaperComponent, 
+                    ProductTestsAddComponent,
+                    ProductStudentsAddComponent],
   imports: [
     NgbModule,
     BrowserModule,
@@ -120,7 +134,8 @@ import { StudentService } from './take-test-home-page/admin-panel/students/stude
               TestService,
               AddTestService,
               SearchTestService,
-              StudentService],
+              StudentService,
+              ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

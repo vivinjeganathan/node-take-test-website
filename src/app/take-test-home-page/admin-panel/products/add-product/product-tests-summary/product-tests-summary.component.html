@@ -1,0 +1,12 @@
+<div class="card text-center">
+  <div class="card-header">
+    Tests Included
+  </div>
+  <div class="card-body">
+      <p class="card-text" *ngFor="let test of tests">{{test.name}}
+      </p>
+  </div>
+  <div class="card-footer text-muted">
+      <button type="button" class="btn btn-info" (click)="associateTests()">Associate Tests</button>&nbsp; &nbsp;
+  </div>
+</div>

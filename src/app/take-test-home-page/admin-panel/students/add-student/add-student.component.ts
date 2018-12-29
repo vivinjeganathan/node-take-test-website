@@ -55,6 +55,7 @@ export class AddStudentComponent implements OnInit {
       'zipCode': new FormControl(''),
       'country': new FormControl(''),
       'interestedExams': new FormControl(''),
+      'studentGroup': new FormControl('')
     })
   }
 
