@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Question } from '../../../question/question.model';
+import { Question } from 'src/app/take-test-home-page/admin-panel/question/question.model';
 
 @Component({
   selector: 'app-test-question-summary-modal',

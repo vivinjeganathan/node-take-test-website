@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProductTestsAddComponent } from '../product-tests-add/product-tests-add.component';
-import { ProductStudentsAddComponent } from '../product-students-add/product-students-add.component';
+import { Product } from '../../product.model';
+import { ProductStudentsAddComponent } from './product-students-add/product-students-add.component';
 
 @Component({
   selector: 'app-product-students-summary',
@@ -9,6 +9,8 @@ import { ProductStudentsAddComponent } from '../product-students-add/product-stu
   styleUrls: ['./product-students-summary.component.css']
 })
 export class ProductStudentsSummaryComponent implements OnInit {
+
+  @Input() product: Product
 
   constructor(private modalService: NgbModal) { }
 
@@ -18,8 +20,8 @@ export class ProductStudentsSummaryComponent implements OnInit {
   associateStudents() {
 
     const modalRef = this.modalService.open(ProductStudentsAddComponent, { size: 'lg' });
-    // modalRef.componentInstance.product = this.product
-    // modalRef.componentInstance.modalRef = modalRef
+    modalRef.componentInstance.product = this.product
+    modalRef.componentInstance.modalRef = modalRef
     // modalRef.componentInstance.formGroup = this.formGroup
   }
 }

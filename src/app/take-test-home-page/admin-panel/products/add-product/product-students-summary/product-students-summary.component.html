@@ -1,10 +1,10 @@
 <div class="card text-center">
     <div class="card-header">
-      Students Associated
+      Student Batches Associated
     </div>
     <div class="card-body">
-      <p class="card-text">AIEEE Crash Evening Batch</p>
-      <p class="card-text">BITSAT Complete Morning Batch</p>
+      <p class="card-text" *ngFor="let studentBatch of product.associatedStudentBatches">{{studentBatch.name}}
+      </p>
     </div>
     <div class="card-footer text-muted">
         <button type="button" class="btn btn-info" (click)="associateStudents()">Associate Students</button>&nbsp; &nbsp;

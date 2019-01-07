@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Test } from '../../../tests/test.model';
-import { SearchTestService } from '../../../tests/search-test/search-test.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Product } from '../../../product.model';
+import { Test } from 'src/app/take-test-home-page/admin-panel/tests/test.model';
+import { SearchTestService } from 'src/app/take-test-home-page/admin-panel/tests/search-test/search-test.service';
 
 @Component({
   selector: 'app-product-tests-add',
@@ -10,8 +11,10 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductTestsAddComponent implements OnInit {
 
-  tests: Test[]
+  @Input() product: Product
   @Input() modalRef: NgbModalRef;
+  
+  tests: Test[]
   
   constructor(private searchTestService: SearchTestService,
               private modalService: NgbModal) { }
@@ -30,7 +33,12 @@ export class ProductTestsAddComponent implements OnInit {
   }
 
   onSaveTests() {
+    var selectedTests = (this.tests).filter((test) => 
+                (test.isSelected == true))
+    this.product.tests = selectedTests
     
+    this.modalRef.close('Save click')
+    console.log(this.product)
   }
 
 }

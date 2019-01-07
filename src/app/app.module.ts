@@ -39,7 +39,6 @@ import { TestSubjectDetailsComponent } from './take-test-home-page/admin-panel/t
 import { TestSubjectAddComponent } from './take-test-home-page/admin-panel/tests/add-test/test-subject-add/test-subject-add.component';
 import { TestGroupComponent } from './take-test-home-page/admin-panel/tests/search-test/test-group/test-group.component';
 import { TestQuestionListModalComponent } from './take-test-home-page/admin-panel/tests/add-test/test-question-list-modal/test-question-list-modal.component';
-import { TestQuestionSummaryModalComponent } from './take-test-home-page/admin-panel/tests/add-test/test-question-summary-modal/test-question-summary-modal.component'
 import { AddTestService } from './take-test-home-page/admin-panel/tests/add-test/add-test.service';
 import { PreviewQuestionPaperComponent } from './take-test-home-page/admin-panel/tests/preview-question-paper/preview-question-paper.component';
 import { SearchTestService } from './take-test-home-page/admin-panel/tests/search-test/search-test.service';
@@ -59,10 +58,13 @@ import { StudentService } from './take-test-home-page/admin-panel/students/stude
 import { ProductTestsSummaryComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-summary/product-tests-summary.component';
 import { ProductStudentsSummaryComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-summary/product-students-summary.component';
 import { ProductPricingDetailsComponent } from './take-test-home-page/admin-panel/products/add-product/product-pricing-details/product-pricing-details.component';
-import { ProductTestsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-add/product-tests-add.component';
 import { ProductService } from './take-test-home-page/admin-panel/products/product.service';
-import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-add/product-students-add.component';
-import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-add/product-test-summary-modal/product-test-summary-modal.component';
+import { TestQuestionSummaryModalComponent } from './take-test-home-page/admin-panel/tests/add-test/test-question-list-modal/test-question-summary-modal/test-question-summary-modal.component';
+import { ProductTestsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-summary/product-tests-add/product-tests-add.component';
+import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-summary/product-students-add/product-students-add.component';
+import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-summary/product-tests-add/product-test-summary-modal/product-test-summary-modal.component';
+import { ProductStudentBatchSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-summary/product-students-add/product-student-batch-summary-modal/product-student-batch-summary-modal.component';
+import { StudentBatchService } from './take-test-home-page/admin-panel/students/studentBatch.service';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,8 @@ import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-pa
     ProductPricingDetailsComponent,
     ProductTestsAddComponent,
     ProductStudentsAddComponent,
-    ProductTestSummaryModalComponent
+    ProductTestSummaryModalComponent,
+    ProductStudentBatchSummaryModalComponent
   ],
   entryComponents: [TestQuestionListModalComponent,
                     PreviewQuestionPaperComponent, 
@@ -137,6 +140,7 @@ import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-pa
               AddTestService,
               SearchTestService,
               StudentService,
+              StudentBatchService,
               ProductService],
   bootstrap: [AppComponent]
 })

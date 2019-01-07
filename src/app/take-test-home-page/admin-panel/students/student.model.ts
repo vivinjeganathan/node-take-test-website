@@ -12,6 +12,7 @@ export class StudentUser {
     public password: string
     public preferredExams: [Examination]
     public status: string
+    public group: string
 }
 
 export class Address {
@@ -21,4 +22,11 @@ export class Address {
     public state: string;
     public zip: string;
     public country: string;
+}
+
+export class StudentBatch {
+    public _id: string
+    public name: string
+    public studentUsers: [StudentUser]
+    public isSelected: Boolean
 }

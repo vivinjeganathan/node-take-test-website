@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,12 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class ProductPricingDetailsComponent implements OnInit {
 
-  public formGroup: FormGroup;
+  @Input() formGroup: FormGroup;
   
   constructor(private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
-    this.formGroup = this.formBuilder.group({
-      'price': new FormControl()
-    })
+    this.formGroup.addControl('price', new FormControl(''))
   }
 
 }

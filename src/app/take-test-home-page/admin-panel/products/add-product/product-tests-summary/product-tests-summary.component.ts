@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProductTestsAddComponent } from '../product-tests-add/product-tests-add.component';
 import { Test } from '../../../tests/test.model';
+import { Product } from '../../product.model';
+import { ProductTestsAddComponent } from './product-tests-add/product-tests-add.component';
 
 @Component({
   selector: 'app-product-tests-summary',
@@ -10,7 +11,7 @@ import { Test } from '../../../tests/test.model';
 })
 export class ProductTestsSummaryComponent implements OnInit {
 
-  tests: Test[] = []
+  @Input() product: Product
 
   constructor(private modalService: NgbModal) { }
 
@@ -20,7 +21,7 @@ export class ProductTestsSummaryComponent implements OnInit {
   associateTests() {
 
     const modalRef = this.modalService.open(ProductTestsAddComponent, { size: 'lg' });
-    // modalRef.componentInstance.product = this.product
+    modalRef.componentInstance.product = this.product
     modalRef.componentInstance.modalRef = modalRef
     // modalRef.componentInstance.formGroup = this.formGroup
   }

@@ -5,7 +5,8 @@ import { Examination, TestCategory, ExaminationGroup, Test } from '../../tests/t
 import { TestService } from '../../tests/test.service';
 import { SearchTestService } from '../../tests/search-test/search-test.service';
 import { Product } from '../product.model';
-import { ProductTestsAddComponent } from './product-tests-add/product-tests-add.component';
+import { ProductTestsAddComponent } from './product-tests-summary/product-tests-add/product-tests-add.component';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -27,21 +28,24 @@ export class AddProductComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private testService: TestService,
               private searchTestService: SearchTestService,
+              private productService: ProductService,
               private modalService: NgbModal) { }
 
   ngOnInit() {
 
+    this.product = new Product
     this.formGroup = this.formBuilder.group({
       
     })
     
     let selectExaminationGroup = new FormControl('')
-    let selectTestFormControl = new FormControl('')
     
     this.formGroup.addControl('productName', new FormControl(''))
-    this.formGroup.addControl('selectTestFormControl', selectExaminationGroup)
-    this.formGroup.addControl('examGroupSelectFormControl', selectTestFormControl)
+    this.formGroup.addControl('productDescription', new FormControl(''))
+    this.formGroup.addControl('examGroupSelectFormControl', selectExaminationGroup)
     this.formGroup.addControl('academicProduct', new FormControl(''))
+    this.formGroup.addControl('startDate', new FormControl(''))
+    this.formGroup.addControl('endDate', new FormControl(''))
     
     this.examinationGroups = this.testService.getExaminationGroups()
 
@@ -78,6 +82,6 @@ export class AddProductComponent implements OnInit {
   }
 
   onAddProduct() {
-
+    this.productService.addProduct(this.formGroup, this.product)
   }
 }

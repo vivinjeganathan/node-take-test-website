@@ -1,0 +1,17 @@
+<td>
+  <div class="input-group mb-3">
+        
+        <div class="form-check">
+              <input type="checkbox" 
+                     class="form-check-input" 
+                     id="{{number}}" 
+                     [checked]='studentBatch.isSelected'
+                     (click)="selectedStudentBatch()">
+
+              <label class="form-check-label" for="{{number}}"> 
+                    {{ studentBatch.name }} 
+              </label>
+        </div>
+
+  </div>
+</td>
