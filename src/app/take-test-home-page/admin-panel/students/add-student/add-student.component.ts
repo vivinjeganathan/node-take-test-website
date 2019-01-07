@@ -4,7 +4,10 @@ import { StudentService } from '../student.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { InjectionToken, FactoryProvider } from '@angular/core';
-import { StudentUser } from '../student.model';
+import { StudentUser, StudentBatch } from '../student.model';
+import { StudentBatchService } from '../studentBatch.service';
+import { ExaminationGroup } from '../../tests/test.model';
+import { TestService } from '../../tests/test.service';
 
 export const WINDOW = new InjectionToken<Window>('window');
 
@@ -31,10 +34,14 @@ export class AddStudentComponent implements OnInit {
   sendInviteButtonTitle = 'Send Invite'
   updateDetailsButtonTitle = 'Add a student'
   studentUser: StudentUser
+  studentBatches: StudentBatch[]
+  examinationGroups: ExaminationGroup[] = []
 
   constructor(private formBuilder: FormBuilder, 
               private studentService: StudentService,
               private activatedRoute: ActivatedRoute,
+              private studentBatchService: StudentBatchService,
+              private testService: TestService,
               @Inject(WINDOW) private window: Window) { }
 
   ngOnInit() {
@@ -57,6 +64,19 @@ export class AddStudentComponent implements OnInit {
       'interestedExams': new FormControl(''),
       'studentGroup': new FormControl('')
     })
+
+    this.studentBatches = this.studentBatchService.getStudentBatchs(null)
+
+    this.studentBatchService.studentBatchesChanged.subscribe((studentBatches: StudentBatch[]) => {
+      this.studentBatches = studentBatches
+    })
+
+    this.examinationGroups = this.testService.getExaminationGroups()
+    this.testService.examinationGroupsChanged.subscribe((examinationGroups: ExaminationGroup[]) => {
+      
+      this.examinationGroups = this.testService.examinationGroups
+    });
+
   }
 
   onSendInvite() {

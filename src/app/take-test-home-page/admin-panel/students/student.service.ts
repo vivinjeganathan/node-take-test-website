@@ -4,6 +4,8 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import {environment} from '../../../../environments/environment';
 import { StudentUser } from "./student.model";
 import { FormGroup } from "@angular/forms";
+import { Params } from "@angular/router";
+import * as _ from 'lodash';
 
 @Injectable()
 export class StudentService {
@@ -17,15 +19,24 @@ export class StudentService {
     inviteSent = new EventEmitter<StudentUser>()
     studentAdded = new EventEmitter<StudentUser>()
 
-    getStudentUsers(id: string) {
-
-        this.studentUsers.length = 0
+    getStudentUsers(params: Params) {
 
         let queryParams = new HttpParams();
 
-        if (id != undefined) {
-            queryParams = queryParams.append('_id', id);
+        if (!_.isUndefined(params) && params != null) {
+
+            let id = params['id'];
+            let examinationGroup = params['examinationGroup'];
+            let batch = params['studentBatch'];
+            let searchBy = params['searchBy'];
+
+            queryParams = _.isUndefined(id) ? queryParams : queryParams.append('_id', id);
+            queryParams = _.isUndefined(examinationGroup) ? queryParams : queryParams.append('examinationGroup', examinationGroup);
+            queryParams = _.isUndefined(batch) ? queryParams : queryParams.append('batch', batch);
+            queryParams = _.isUndefined(searchBy) ? queryParams : queryParams.append('searchBy', searchBy);
         }
+
+        this.studentUsers.length = 0
 
         this.http.get(this.studentUserURL , { params: queryParams } ).subscribe(
             (response) => {

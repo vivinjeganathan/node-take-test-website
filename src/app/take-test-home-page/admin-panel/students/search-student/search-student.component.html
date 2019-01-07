@@ -1,3 +1,10 @@
+<app-search-by-details [formGroup]="formGroup"
+                       (examinationGroupsValueChanged)="OnSelectExaminationGroup($event)"
+                       (studentBatchesValueChanged)="OnSelectStudentBatch($event)"
+                       (searchByValueChanged)="OntextSearch($event)">
+
+</app-search-by-details>
+
 <div class="table-responsive">
   <table class="table table-bordered table-sm">
     <thead class="thead-light">

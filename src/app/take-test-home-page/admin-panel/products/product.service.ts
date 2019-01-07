@@ -42,31 +42,31 @@ export class ProductService {
 
     addProduct(productDetails: FormGroup, product: Product) {
     
-    let postJson = {"name" :  productDetails.get('productName').value, 
-                    "description": productDetails.get('productDescription').value,  
-                    "startTime": this.getDate(productDetails.get('startDate').value),  
-                    "endTime": this.getDate(productDetails.get('endDate').value), 
-                    "isAcademicProduct": productDetails.get('academicProduct').value }
+        let postJson = {"name" :  productDetails.get('productName').value, 
+                        "description": productDetails.get('productDescription').value,  
+                        "startTime": this.getDate(productDetails.get('startDate').value),  
+                        "endTime": this.getDate(productDetails.get('endDate').value), 
+                        "isAcademicProduct": productDetails.get('academicProduct').value }
 
-    if (productDetails.get('academicProduct').value) {
-        let studentBatchesArray = product.associatedStudentBatches.map(batch => batch._id)
-        postJson['associatedStudentBatches'] = studentBatchesArray
-    } else {
-        postJson['productCost'] = productDetails.get('price').value
-        postJson['isAcademicProduct'] = false
+        if (productDetails.get('academicProduct').value) {
+            let studentBatchesArray = product.associatedStudentBatches.map(batch => batch._id)
+            postJson['associatedStudentBatches'] = studentBatchesArray
+        } else {
+            postJson['productCost'] = productDetails.get('price').value
+            postJson['isAcademicProduct'] = false
+        }
+
+        if(product.tests) {
+            let testsArray = product.tests.map(test => test._id)
+            postJson['tests'] = testsArray
+        }
+
+        this.http.post(this.productURL, postJson).subscribe(
+            
+            (response) => {
+                console.log(response)
+            },
+            (error) => console.log(error)
+        )
     }
-
-    if(product.tests) {
-        let testsArray = product.tests.map(test => test._id)
-        postJson['tests'] = testsArray
-    }
-
-    this.http.post(this.productURL, postJson).subscribe(
-        
-        (response) => {
-            console.log(response)
-        },
-        (error) => console.log(error)
-    )
-}
 }

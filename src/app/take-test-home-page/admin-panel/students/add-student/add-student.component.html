@@ -95,18 +95,15 @@
         <div class="form-group col-md-6">
             <label>Interested in coaching for</label>
             <select class="form-control" formControlName="interestedExams">
-                <option>AIEEE</option>
-                <option>BITSAT</option>
-                <option>IIT JEE</option>
+                <option *ngFor="let option of examinationGroups" [value]="option?.name">{{option.name}}
+                </option>
             </select>
         </div>
 
         <div class="form-group col-md-6">
             <label>Student Group</label>
             <select class="form-control" formControlName="studentGroup">
-                <option>AIEEE Crash Evening Batch</option>
-                <option>BITSAT Complete Morning Batch</option>
-                <option>AIEEE Complete Batch</option>
+                <option *ngFor="let studentBatch of studentBatches;">{{ studentBatch.name }}</option>
             </select>
         </div>
     </div>

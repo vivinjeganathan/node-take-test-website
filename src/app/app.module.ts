@@ -65,6 +65,7 @@ import { ProductStudentsAddComponent } from './take-test-home-page/admin-panel/p
 import { ProductTestSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-tests-summary/product-tests-add/product-test-summary-modal/product-test-summary-modal.component';
 import { ProductStudentBatchSummaryModalComponent } from './take-test-home-page/admin-panel/products/add-product/product-students-summary/product-students-add/product-student-batch-summary-modal/product-student-batch-summary-modal.component';
 import { StudentBatchService } from './take-test-home-page/admin-panel/students/studentBatch.service';
+import { SearchByDetailsComponent } from './take-test-home-page/admin-panel/students/search-student/search-by-details/search-by-details.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { StudentBatchService } from './take-test-home-page/admin-panel/students/
     ProductTestsAddComponent,
     ProductStudentsAddComponent,
     ProductTestSummaryModalComponent,
-    ProductStudentBatchSummaryModalComponent
+    ProductStudentBatchSummaryModalComponent,
+    SearchByDetailsComponent
   ],
   entryComponents: [TestQuestionListModalComponent,
                     PreviewQuestionPaperComponent, 
