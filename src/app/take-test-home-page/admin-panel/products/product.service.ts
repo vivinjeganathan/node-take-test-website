@@ -5,6 +5,8 @@ import { Product } from "./product.model";
 import {environment} from '../../../../environments/environment';
 import { FormGroup } from "@angular/forms";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import { Params } from "@angular/router";
+import * as _ from 'lodash';
 
 @Injectable()
 export class ProductService {
@@ -17,11 +19,24 @@ export class ProductService {
 
     constructor(private http: HttpClient) { }
 
-    getProducts() {
+    getProducts(params: Params) {
+
+        let queryParams = new HttpParams();
+
+        if (!_.isUndefined(params) && params != null) {
+
+            let id = params['id'];
+            let examinationGroup = params['examinationGroup'];
+            let productName = params['productName'];
+
+            queryParams = _.isUndefined(id) ? queryParams : queryParams.append('_id', id);
+            queryParams = _.isUndefined(examinationGroup) ? queryParams : queryParams.append('examinationGroup', examinationGroup);
+            queryParams = _.isUndefined(productName) ? queryParams : queryParams.append('productName', productName);
+        }
 
         this.products.length = 0
 
-        this.http.get(this.productURL).subscribe(
+        this.http.get(this.productURL , { params: queryParams } ).subscribe(
             (response) => {
                 this.products = this.products.concat(response as [Product])
                 this.productsChanged.emit(this.products)
@@ -68,5 +83,15 @@ export class ProductService {
             },
             (error) => console.log(error)
         )
+    }
+
+    OnDeleteProduct(product: Product) {
+        
+        var deleteUrl = this.productURL + "/" + product._id
+        this.http.delete(deleteUrl).subscribe((response) => {
+
+            this.products.splice(this.products.indexOf(product), 1);
+            this.productsChanged.emit(this.products)
+        }, (error) => console.log(error))
     }
 }

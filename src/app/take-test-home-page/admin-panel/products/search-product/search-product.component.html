@@ -1,3 +1,25 @@
-<p>
-  search-product works!
-</p>
+<app-product-search-by [formGroup]="formGroup"
+                       (examinationGroupsValueChanged)="OnSelectExaminationGroup($event)"
+                       (productNameChanged)="OnProductNameSearch($event)">
+
+</app-product-search-by>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-sm">
+    <thead class="thead-light">
+      <tr class="d-flex">
+        <th>#</th>
+        <th>Product Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+          <app-product-details-summary
+            [number]="i"
+            [product]="product"
+            (productDeleted)="OnDeleteProduct($event)"> 
+          </app-product-details-summary>
+      </tr>
+    </tbody>
+  </table>
+</div>
