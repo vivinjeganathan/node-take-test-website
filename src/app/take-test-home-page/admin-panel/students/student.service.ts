@@ -28,12 +28,12 @@ export class StudentService {
             let id = params['id'];
             let examinationGroup = params['examinationGroup'];
             let batch = params['studentBatch'];
-            let searchBy = params['searchBy'];
+            let searchBy = params['searchForText'];
 
             queryParams = _.isUndefined(id) ? queryParams : queryParams.append('_id', id);
             queryParams = _.isUndefined(examinationGroup) ? queryParams : queryParams.append('examinationGroup', examinationGroup);
             queryParams = _.isUndefined(batch) ? queryParams : queryParams.append('batch', batch);
-            queryParams = _.isUndefined(searchBy) ? queryParams : queryParams.append('searchBy', searchBy);
+            queryParams = _.isUndefined(searchBy) ? queryParams : queryParams.append('searchForText', searchBy);
         }
 
         this.studentUsers.length = 0

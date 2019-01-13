@@ -45,7 +45,7 @@ export class StudentSignupComponent implements OnInit {
         }
 
       });
-      this.studentUser = this.studentService.getStudentUsers(this.updateStudentId)[0]
+      this.studentUser = this.studentService.getStudentUsers({ "id" : this.updateStudentId })[0]
     }
 
     this.registerForm = this.formBuilder.group({

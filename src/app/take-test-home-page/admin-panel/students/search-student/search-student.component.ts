@@ -34,7 +34,7 @@ export class SearchStudentComponent implements OnInit {
       
       this.studentUsers = this.studentService.studentUsers
     });
-    this.studentUsers = this.studentService.getStudentUsers(null)
+    //this.studentUsers = this.studentService.getStudentUsers(null)
   }
 
   OnSelectExaminationGroup(examinationGroup: ExaminationGroup) {
@@ -54,7 +54,7 @@ export class SearchStudentComponent implements OnInit {
   OntextSearch(text: string) {
     const queryParams: Params = Object.assign({}, this.activatedRoute.snapshot.queryParams);
 
-    this.setQueryParam(text, 'searchBy', queryParams)
+    this.setQueryParam(text, 'searchForText', queryParams)
     this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: queryParams });
   }
 

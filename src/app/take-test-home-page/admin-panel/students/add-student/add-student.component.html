@@ -94,16 +94,16 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Interested in coaching for</label>
-            <select class="form-control" formControlName="interestedExams">
-                <option *ngFor="let option of examinationGroups" [value]="option?.name">{{option.name}}
+            <select class="form-control" formControlName="preferredExams">
+                <option *ngFor="let option of examinationGroups" [value]="option?._id">{{option.name}}
                 </option>
             </select>
         </div>
 
         <div class="form-group col-md-6">
             <label>Student Group</label>
-            <select class="form-control" formControlName="studentGroup">
-                <option *ngFor="let studentBatch of studentBatches;">{{ studentBatch.name }}</option>
+            <select class="form-control" formControlName="group">
+                <option *ngFor="let studentBatch of studentBatches;" [value]="studentBatch?._id">{{ studentBatch.name }}</option>
             </select>
         </div>
     </div>

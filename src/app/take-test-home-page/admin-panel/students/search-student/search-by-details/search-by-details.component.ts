@@ -35,6 +35,7 @@ export class SearchByDetailsComponent implements OnInit {
     this.formGroup.addControl('searchBy', new FormControl(''))
 
     this.studentBatches = this.studentBatchService.getStudentBatchs(null)
+    this.examinationGroups = this.testService.getExaminationGroups()
 
     selectExamination.valueChanges.subscribe((value) => {
 
@@ -52,9 +53,7 @@ export class SearchByDetailsComponent implements OnInit {
       this.studentBatches = studentBatches
     })
 
-    this.examinationGroups = this.testService.getExaminationGroups()
     this.testService.examinationGroupsChanged.subscribe((examinationGroups: ExaminationGroup[]) => {
-      
       this.examinationGroups = this.testService.examinationGroups
     });
   }

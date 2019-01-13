@@ -61,8 +61,8 @@ export class AddStudentComponent implements OnInit {
       'state': new FormControl(''),
       'zipCode': new FormControl(''),
       'country': new FormControl(''),
-      'interestedExams': new FormControl(''),
-      'studentGroup': new FormControl('')
+      'preferredExams': new FormControl(''),
+      'group': new FormControl('')
     })
 
     this.studentBatches = this.studentBatchService.getStudentBatchs(null)

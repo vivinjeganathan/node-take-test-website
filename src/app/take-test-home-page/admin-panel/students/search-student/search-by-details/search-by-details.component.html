@@ -11,11 +11,14 @@
       <div class="form-group col-md-4">
           <label>Select Batch</label>
           <select class="form-control" formControlName="studentBatch">
-            <option *ngFor="let studentBatch of studentBatches;">{{ studentBatch.name }}</option>
+            <option *ngFor="let studentBatch of studentBatches" [value]="studentBatch?.name">{{ studentBatch.name }}</option>
         </select>
       </div>
   </div>   
 
+  (OR)
+  &nbsp;
+  
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="searchBy">Search by text</label>

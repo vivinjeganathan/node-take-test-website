@@ -18,17 +18,18 @@ export class StudentBatchService {
 
     getStudentBatchs(id: string) {
 
-        this.studentBatches.length = 0
-
         let queryParams = new HttpParams();
 
         if (id != undefined) {
             queryParams = queryParams.append('_id', id);
         }
 
+        this.studentBatches.length = 0
+        this.studentBatches.push(this.getDummyStudentBatch())
+                
         this.http.get(this.studentBatchURL , { params: queryParams } ).subscribe(
             (response) => {
-                this.studentBatches = response as [StudentBatch]
+                this.studentBatches = this.studentBatches.concat(response as [StudentBatch])
                 this.studentBatchesChanged.emit(this.studentBatches)
                 console.log(this.studentBatches)
             },
@@ -38,6 +39,14 @@ export class StudentBatchService {
         return this.studentBatches
     }
     
+    getDummyStudentBatch(): StudentBatch {
+
+        var studentBatch = new StudentBatch
+        studentBatch.name = 'Select'
+
+        return studentBatch;
+    }
+
     addStudentBatch(formBatch: FormGroup, status: string) {
 
         // var json = JSON.parse(JSON.stringify(formBatch.value))
