@@ -18,7 +18,7 @@ export class UserSummaryComponent implements OnInit {
   ngOnInit() {
   }
 
-  OnDeleteStudentUser() {
+  OnDeleteAdminUser() {
 
     this.adminUserDeleted.emit(this.adminUser);
   }
