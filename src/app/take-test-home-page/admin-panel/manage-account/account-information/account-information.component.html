@@ -1,0 +1,99 @@
+<form [formGroup]="formGroup">
+  
+  <h5>Company Details</h5>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="companyName">Company Name</label>
+            <input type="text" formControlName="companyName" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="proprietorName">Proprietor Name</label>
+          <input type="text" formControlName="proprietorName" class="form-control" />
+        </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="username">Company Email(Username)</label>
+        <input type="text" formControlName="username" class="form-control" [attr.disabled]=true/>
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="text" formControlName="mobileNumber" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-4">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" />
+      </div>
+    
+      <div class="form-group col-md-4">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" formControlName="confirmPassword" class="form-control" />
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="supportEmail">Support Email</label>
+        <input type="text" formControlName="supportEmail" class="form-control" />
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="supportMobile">Support Mobile Number</label>
+          <input type="text" formControlName="supportMobile" class="form-control" />
+      </div>
+    </div>
+
+    <br/>
+    <h5>Address Details</h5>
+    <div formGroupName="address">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" formControlName="addressLine1" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="addressLine2">Address Line 2</label>
+                <input type="text" formControlName="addressLine2" class="form-control"/>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="city">City</label>
+                <input type="text" formControlName="city" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="state">State</label>
+                <input type="text" formControlName="state" class="form-control"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="zipCode">Zip Code</label>
+                <input type="text" formControlName="zip" class="form-control"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                    <label for="country">Country</label>
+                    <input type="text" formControlName="country" class="form-control"/>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+        <button class="btn btn-primary" (click)='onUpdateDetails()'>Update Details</button>
+    </div>
+</form>

@@ -1,3 +1,19 @@
-<p>
-  manage-account works!
-</p>
+<hr>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="accountInformation" routerLinkActive="active">Account Information</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="users" routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="paymentGateways" routerLinkActive="active">Payment Gateways</a>
+      </li>
+    </ul>
+
+    <br> 
+    
+    <router-outlet></router-outlet>
+</div>

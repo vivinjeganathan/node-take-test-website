@@ -69,7 +69,7 @@ export class StudentService {
         var json = JSON.parse(JSON.stringify(formGroup.value))
         json['studentId'] = id
         json['status'] = status
-        console.log(json)
+
         this.http.patch(this.studentUserURL, json).subscribe(
             
             (response) => {

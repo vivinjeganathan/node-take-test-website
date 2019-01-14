@@ -68,6 +68,11 @@ import { StudentBatchService } from './take-test-home-page/admin-panel/students/
 import { SearchByDetailsComponent } from './take-test-home-page/admin-panel/students/search-student/search-by-details/search-by-details.component';
 import { ProductSearchByComponent } from './take-test-home-page/admin-panel/products/search-product/product-search-by/product-search-by.component';
 import { ProductDetailsSummaryComponent } from './take-test-home-page/admin-panel/products/search-product/product-details-summary/product-details-summary.component';
+import { AccountInformationComponent } from './take-test-home-page/admin-panel/manage-account/account-information/account-information.component';
+import { UsersComponent } from './take-test-home-page/admin-panel/manage-account/users/users.component';
+import { PaymentGatewaysComponent } from './take-test-home-page/admin-panel/manage-account/payment-gateways/payment-gateways.component';
+import { ManageAccountService } from './take-test-home-page/admin-panel/manage-account/manage-account.service';
+import { UserSummaryComponent } from './take-test-home-page/admin-panel/manage-account/users/user-summary/user-summary.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +127,11 @@ import { ProductDetailsSummaryComponent } from './take-test-home-page/admin-pane
     ProductStudentBatchSummaryModalComponent,
     SearchByDetailsComponent,
     ProductSearchByComponent,
-    ProductDetailsSummaryComponent
+    ProductDetailsSummaryComponent,
+    AccountInformationComponent,
+    UsersComponent,
+    PaymentGatewaysComponent,
+    UserSummaryComponent
   ],
   entryComponents: [TestQuestionListModalComponent,
                     PreviewQuestionPaperComponent, 
@@ -147,7 +156,8 @@ import { ProductDetailsSummaryComponent } from './take-test-home-page/admin-pane
               SearchTestService,
               StudentService,
               StudentBatchService,
-              ProductService],
+              ProductService,
+              ManageAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

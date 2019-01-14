@@ -20,6 +20,9 @@ import { StudentPanelComponent } from "./take-test-home-page/student-panel/stude
 import { AdminPanelComponent } from "./take-test-home-page/admin-panel/admin-panel.component";
 import { SearchStudentComponent } from "./take-test-home-page/admin-panel/students/search-student/search-student.component";
 import { AddStudentComponent } from "./take-test-home-page/admin-panel/students/add-student/add-student.component";
+import { AccountInformationComponent } from "./take-test-home-page/admin-panel/manage-account/account-information/account-information.component";
+import { UsersComponent } from "./take-test-home-page/admin-panel/manage-account/users/users.component";
+import { PaymentGatewaysComponent } from "./take-test-home-page/admin-panel/manage-account/payment-gateways/payment-gateways.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -49,7 +52,11 @@ const appRoutes: Routes = [
             { path: 'addStudent', component: AddStudentComponent}
         ]},
         { path: 'reports', component: ReportsComponent},
-        { path: 'manageAccount', component: ManageAccountComponent}
+        { path: 'manageAccount', component: ManageAccountComponent, children: [
+            { path: 'accountInformation', component: AccountInformationComponent},
+            { path: 'users', component: UsersComponent},
+            { path: 'paymentGateways', component: PaymentGatewaysComponent}
+        ]},
     ]},
   ]
 

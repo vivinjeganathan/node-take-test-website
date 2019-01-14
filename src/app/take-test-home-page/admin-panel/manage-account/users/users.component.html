@@ -1,0 +1,19 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-sm">
+    <thead class="thead-light">
+      <tr class="d-flex">
+        <th>#</th>
+        <th>User Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let adminUser of adminUsers; let i = index">
+          <app-user-summary
+            [number]="i"
+            [adminUser]="adminUser"
+            (adminUserDeleted)="OnDeleteAdminUser($event)"> 
+          </app-user-summary>
+      </tr>
+    </tbody>
+  </table>
+</div>
